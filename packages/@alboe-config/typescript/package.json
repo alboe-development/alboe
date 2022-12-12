@@ -1,0 +1,36 @@
+{
+  "name": "@alboe-config/typescript",
+  "packageManager": "yarn@3.3.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0",
+    "yarn": ">=3.0.0"
+  },
+  "type": "commonjs",
+  "main": "./dist/tsconfig.json",
+  "files": [
+    "./dist"
+  ],
+  "scripts": {
+    "analyze": "yarn analyze:src && yarn analyze:dist",
+    "analyze:dist": "echo \"script not implemented\"",
+    "analyze:src": "echo \"script not implemented\"",
+    "build": "yarn build:dist && yarn build:docs",
+    "build:dist": "copyfiles -u 1 src/**/*.* ./dist",
+    "build:docs": "",
+    "clean": "yarn clean:dist",
+    "clean:dist": "rimraf ./dist",
+    "publish": "yarn publish:npmjs",
+    "publish:npmjs": "echo \"script not implemented\"",
+    "test": "exit 0",
+    "test:dist": "exit 0",
+    "test:src": "exit 0"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "typescript": "^4.9.4"
+  }
+}

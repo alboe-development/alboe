@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "declarationDir": "./dist/types",
+    "outDir": "./dist/module"
+  },
+  "exclude": [
+    "**/*.test.ts"
+  ],
+  "extends": "@alboe-config/typescript/dist/tsconfig.json",
+  "include": [
+    "./src/**/*.ts"
+  ]
+}
