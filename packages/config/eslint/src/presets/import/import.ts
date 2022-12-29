@@ -1,14 +1,15 @@
 import { Preset } from '../../models';
 import type { PresetConfig } from '../../models';
 
-import CONSTANTS from './typescript.constants';
+import CONSTANTS from './import.constants';
 
-class Typescript extends Preset {
+class Import extends Preset {
   public constructor(config: PresetConfig = {}) {
-    super({
-      ...Typescript.CONSTANTS.DEFAULTS,
-      ...config,
-    });
+    super(structuredClone(config));
+  }
+
+  public override get CONSTANTS(): typeof Import.CONSTANTS {
+    return Import.CONSTANTS;
   }
 
   public static override get CONSTANTS(): typeof CONSTANTS {
@@ -16,4 +17,4 @@ class Typescript extends Preset {
   }
 }
 
-export default Typescript;
+export default Import;

@@ -24,7 +24,26 @@ const DEFAULTS: PresetDefaults = {
     ],
     '@typescript-eslint/no-unused-vars': 'error',
   },
-  SETTINGS: {},
+  SETTINGS: {
+    'import/extensions': [
+      '.ts',
+      '.tsx'
+    ],
+    'import/parsers': {
+      '@typescript-eslint/parser': [
+        '.ts',
+        '.tsx',
+      ],
+    },
+    'import/resolver': {
+      node: {
+        extensions: [
+          '.ts',
+          '.tsx',
+        ],
+      },
+    },
+  },
 };
 
 const CONSTANTS = {

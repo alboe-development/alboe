@@ -1,1 +1,0 @@
-# @alboe-config/typescript

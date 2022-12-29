@@ -6,7 +6,7 @@
   "exclude": [
     "**/*.test.ts"
   ],
-  "extends": "@alboe-config/typescript/dist/tsconfig.json",
+  "extends": "@alboe/config-typescript/dist/tsconfig.json",
   "include": [
     "./src/**/*.ts"
   ]
