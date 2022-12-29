@@ -2,19 +2,22 @@
   "name": "alboe",
   "packageManager": "yarn@4.0.0-rc.33",
   "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0",
+    "yarn": ">=3.0.0"
+  },
   "workspaces": [
     "./packages/**"
   ],
   "scripts": {
-    "@alboe-config/eslint": "yarn workspace @alboe-config/eslint",
-    "@alboe-config/typescript": "yarn workspace @alboe-config/typescript",
-    "@alboe-tools/command": "yarn workspace @alboe-tools/command",
-    "@alboe-common/config": "yarn workspace @alboe-common/config",
-    "@alboe-tools/diagram": "yarn workspace @alboe-tools/diagram",
-    "@alboe-tools/generator": "yarn workspace @alboe-tools/generator",
-    "@alboe-tools/log": "yarn workspace @alboe-common/log",
-    "build": "yarn workspaces foreach --topological-dev --parallel run build",
-    "clean": "yarn workspaces foreach --parallel run clean"
+    "@workspaces": "yarn workspaces foreach --topological-dev --parallel",
+    "@all": "yarn @workspaces --from \"@alboe/**\" run",
+    "@config": "yarn @workspaces --from \"@alboe/config-*\" run",
+    "@config:eslint": "yarn workspace @alboe/config-eslint",
+    "@config:typescript": "yarn workspace @alboe/config-typescript",
+    "build": "yarn @all build",
+    "clean": "yarn @all clean"
   },
   "devDependencies": {
     "eslint": "^8.29.0",
