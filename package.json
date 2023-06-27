@@ -1,26 +1,25 @@
 {
   "name": "alboe",
-  "packageManager": "yarn@4.0.0-rc.33",
+  "packageManager": "yarn@3.4.1",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alboe-development/alboe.git"
+  },
+  "license": "MIT",
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0",
-    "yarn": ">=3.0.0"
+    "node": "18",
+    "npm": "8",
+    "yarn": "3"
   },
   "workspaces": [
-    "./packages/**"
+    "packages/*"
   ],
   "scripts": {
-    "@workspaces": "yarn workspaces foreach --topological-dev --parallel",
-    "@all": "yarn @workspaces --from \"@alboe/**\" run",
-    "@config": "yarn @workspaces --from \"@alboe/config-*\" run",
-    "@config:eslint": "yarn workspace @alboe/config-eslint",
-    "@config:typescript": "yarn workspace @alboe/config-typescript",
-    "build": "yarn @all build",
-    "clean": "yarn @all clean"
+    "@all": "yarn workspaces foreach --topological-dev --parallel run"
   },
   "devDependencies": {
-    "eslint": "^8.29.0",
-    "typescript": "^4.9.4"
+    "eslint": "^8.43.0",
+    "typescript": "^5.1.3"
   }
 }
