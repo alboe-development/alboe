@@ -1,39 +1,25 @@
-# Alboe Monorepo
+# ALBOE Mono-Repository
 
-[![License - MIT](https://shields.io/badge/License-MIT-blue?style=flat)](https://github.com/AlboeDev/alboe/blob/main/packages/config/eslint/LICENSE)
+**ALBOE Development**'s [Mono-Repository](https://en.wikipedia.org/wiki/Monorepo) project.
+
+[![License - MIT](https://shields.io/badge/License-MIT-blue?style=flat)](https://github.com/alboe-development/alboe/blob/main/LICENSE)
 ![State - WIP](https://shields.io/badge/State-WIP-orange?style=flat)
 
-**Alboe Development**'s [Monorepo](https://en.wikipedia.org/wiki/Monorepo) project.
-
-This project is designed as a platform to manage all projects developed within the [Alboe Development](https://github.com/AlboeDev) organization by providing a core foundation using [Yarn](https://yarnpkg.com/).
-
-**Table of Contents**
+This project is designed as a platform to manage all projects developed within the [Alboe Development](https://github.com/alboe-development) organization by providing a core foundation using [Yarn](https://yarnpkg.com/).
 
 * [Requirements](#requirements)
 * [Contribution](#contribution)
-* [Scripts](#scripts)
 
 ## Requirements
 
-This package has the following requirements:
+This project has the following requirements:
 
-* Node v18
-* Yarn v4
+* **Node** *v18*
+* **NPM** *v8*
+* **Yarn** *v3*
 
-This package uses a collection of dependencies that can be inferred from this package's [package definition file](https://github.com/AlboeDev/alboe/blob/main/package.json). These dependencies should be automatically managed based on this package's definition file, along with your package manager.
+This project uses a collection of dependencies that can be inferred from all contained [package definition files](https://docs.npmjs.com/cli/v9/configuring-npm/package-json) within this project.
 
 ## Contribution
 
-See the [contribution guide](https://github.com/AlboeDev/alboe/blob/main/README.md) for more information on how to contribute.
-
-## Scripts
-
-The following scripts are available within this package:
-
-* `@workspaces` - Helper for executing workspace scripts in a consistent manner
-* `@all` - Execute a script against all packages within this project.
-* `@config` - Execute a script against all `@alboe/config-*` packages within this project.
-  * `@config:eslint` - Execute a script against the @alboe/config-eslint package.
-  * `@config:typescript` - Execute a script against the @alboe/config-typescript package.
-* `build` - Execute the build script for every package within this project.
-* `clean` - Execute the clean script for every package within this project.
+Currently, this project is not open for contributions.
