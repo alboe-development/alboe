@@ -53,7 +53,7 @@ module.exports = config;
 
 Once the above-defined `./.eslintrc.js` file has been generated, the following scripts can be amended to the localized `./package.json` file.
 
-```json
+```json5
 {
   /* ... */
   "scripts": {
