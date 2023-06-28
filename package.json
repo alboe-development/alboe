@@ -13,13 +13,15 @@
     "yarn": "3"
   },
   "workspaces": [
-    "packages/*"
+    "packages/**/*"
   ],
   "scripts": {
-    "@all": "yarn workspaces foreach --topological-dev --parallel run"
+    "@workspaces": "yarn workspaces foreach --parallel --topological-dev --verbose",
+    "@all": "yarn @workspaces run",
+    "@config": "yarn @workspaces --from \"@alboe/*-config\" run"
   },
   "devDependencies": {
-    "eslint": "^8.43.0",
-    "typescript": "^5.1.3"
+    "eslint": "8.43.0",
+    "typescript": "5.1.3"
   }
 }

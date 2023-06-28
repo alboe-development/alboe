@@ -12,7 +12,7 @@ This project is designed as a platform to manage all projects developed within t
 
 ## Requirements
 
-This project has the following requirements:
+This project has the following platform requirements:
 
 * **Node** *v18*
 * **NPM** *v8*
