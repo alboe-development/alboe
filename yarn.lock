@@ -22,6 +22,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alboe/typscript-config@workspace:packages/config/typescript":
+  version: 0.0.0-use.local
+  resolution: "@alboe/typscript-config@workspace:packages/config/typescript"
+  languageName: unknown
+  linkType: soft
+
 "@es-joy/jsdoccomment@npm:~0.39.4":
   version: 0.39.4
   resolution: "@es-joy/jsdoccomment@npm:0.39.4"

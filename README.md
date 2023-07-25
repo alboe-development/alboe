@@ -20,6 +20,14 @@ This project has the following platform requirements:
 
 This project uses a collection of dependencies that can be inferred from all contained [package definition files](https://docs.npmjs.com/cli/v9/configuring-npm/package-json) within this project.
 
+## Packages
+
+Below is a list of all packages in their respective scopes available in this project:
+
+* **Configuration**
+  * [@alboe/eslint-config](packages/config/eslint/)
+  * [@alboe/typescript-config](packages/config/typescript/)
+
 ## Contribution
 
 Currently, this project is not open for contributions.
