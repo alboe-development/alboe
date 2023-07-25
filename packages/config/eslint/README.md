@@ -57,7 +57,7 @@ Once the above-defined `./.eslintrc.js` file has been generated, the following s
 {
   /* ... */
   "scripts": {
-    "test:style": "eslint \"./{src,static,test}/**/*.*\"",
+    "test:style": "eslint \"./{src,static,test}/**/*.{js,ts}\"",
     "test:style:fix": "yarn test:style --fix"
   },
   /* ... */
