@@ -26,6 +26,7 @@ Below is a list of all packages in their respective scopes available in this pro
 
 * **Configuration**
   * [@alboe/eslint-config](packages/config/eslint/)
+  * [@alboe/husky-config](packages/config/husky/)
   * [@alboe/typescript-config](packages/config/typescript/)
 
 ## Contribution
