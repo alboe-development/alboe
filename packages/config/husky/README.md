@@ -1,11 +1,11 @@
 # @alboe/husky-config
 
-**ALBOE Development** TypeScript configuration package.
+**ALBOE Development** Husky configuration package.
 
 [![License - MIT](https://shields.io/badge/License-MIT-blue?style=flat)](https://github.com/alboe-development/alboe/blob/main/LICENSE)
 ![State - WIP](https://shields.io/badge/State-WIP-orange?style=flat)
 
-This package is designed as an internal, sharable [Husky](https://typicode.github.io/husky/) configuration package to use within all packages within this project.
+This package is designed as an internal [Husky](https://typicode.github.io/husky/) configuration package to use within this project's root.
 
 * [Installation](#installation)
 * [Usage](#usage)
