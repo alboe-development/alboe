@@ -17,7 +17,7 @@
     "./typescript": "./static/typescript/index.js"
   },
   "scripts": {
-    "test:style": "eslint \"./{src,static,test}/**/*.*\"",
+    "test:style": "eslint \"./{src,static,test}/**/*.{js,ts}\"",
     "test:style:fix": "yarn test:style --fix"
   },
   "peerDependencies": {
