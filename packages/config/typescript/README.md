@@ -39,10 +39,6 @@ A TypeScript configuration file must be available within the localized package a
 
 {
   "extends": "@alboe/typescript-config/static/index.json",
-  "compilerOptions": {
-    "outDir": "./dist/module", // Required for configuration localization.
-    "declarationDir": "./dist/types", // Required for configuration localization.
-  },
   "include": [
     "./src/**/*.ts" // Required for configuration localization.
   ]
@@ -55,9 +51,9 @@ Once the above-defined `./tsconfig.json` file has been generated, the following 
 {
   /* ... */
   "scripts": {
-    "build": "yarn build:src",
-    "build:src": "yarn build:src:module",
-    "build:src:module": "tsc",
+    "build": "yarn build:module && yarn build:types",
+    "build:module": "tsc --declaration false --outDir ./dist/module",
+    "build:types": "tsc --declaration --declarationMap --declarationDir ./dist/types --emitDeclarationOnly",
     "test:syntax": "tsc --noEmit",
   },
   /* ... */

@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    // Type Checking
     "alwaysStrict": true,
     "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
@@ -12,34 +11,26 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "skipLibCheck": true,
     "strict": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": true,
 
-    // Modules
     "module": "CommonJS",
     "moduleResolution": "node",
 
-    // Emit
-    "declaration": true,
-    "declarationMap": true,
     "sourceMap": true,
-    "inlineSourceMap": true,
     "inlineSources": true,
     "newLine": "lf",
 
-
-    // JavaScript Support
     "allowJs": false,
 
-    // Interop Constraints
     "allowSyntheticDefaultImports": false,
     "esModuleInterop": true,
     "isolatedModules": true,
 
-    // Language and Environment
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
