@@ -1,3 +1,5 @@
+require('@rushstack/eslint-patch/modern-module-resolution');
+
 const javascript = require('./javascript');
 const typescript = require('./typescript');
 

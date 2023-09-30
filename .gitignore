@@ -1,3 +1,7 @@
+# Artifacts
+dist/
+docs/
+
 # Yarn
 .pnp.*
 .yarn/*
