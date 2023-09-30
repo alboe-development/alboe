@@ -19,7 +19,7 @@ __metadata:
     "@microsoft/api-documenter": 7.23.8
     "@microsoft/api-extractor": 7.37.3
     eslint: 8.50.0
-    lit: ^2.8.0
+    lit: 2.8.0
     rimraf: 5.0.5
     typescript: 5.0.4
   languageName: unknown
@@ -2748,7 +2748,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:^2.8.0":
+"lit@npm:2.8.0":
   version: 2.8.0
   resolution: "lit@npm:2.8.0"
   dependencies:
