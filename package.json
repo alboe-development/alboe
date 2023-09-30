@@ -17,18 +17,26 @@
   ],
   "scripts": {
     "postinstall": "yarn postinstall:husky",
-    "postinstall:husky": "yarn husky install ./packages/config/husky/static/hooks",
+    "postinstall:husky": "yarn husky install ./config/husky/hooks",
     "@workspaces": "yarn workspaces foreach --parallel --topological-dev --verbose",
     "@all": "yarn @workspaces run",
-    "@config": "yarn @workspaces --from \"@alboe/*-config\" run",
-    "@engine": "yarn @workspaces --from \"@alboe/engine-*\" run"
+    "@design": "yarn @workspaces --from \"@alboe/design-*\" run"
   },
   "devDependencies": {
-    "@alboe/husky-config": "workspace:^",
     "@commitlint/cli": "17.6.7",
     "@commitlint/config-conventional": "17.6.7",
-    "eslint": "8.43.0",
+    "@rushstack/eslint-patch": "1.5.0",
+    "@typescript-eslint/eslint-plugin": "6.7.3",
+    "@typescript-eslint/parser": "6.7.3",
+    "add": "2.0.6",
+    "eslint": "8.50.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-airbnb-typescript": "17.1.0",
+    "eslint-plugin-import": "2.28.1",
+    "eslint-plugin-jsdoc": "46.8.2",
+    "eslint-plugin-tsdoc": "0.2.17",
     "husky": "8.0.3",
-    "typescript": "4.5.2"
+    "rimraf": "5.0.5",
+    "typescript": "5.0.4"
   }
 }

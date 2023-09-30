@@ -3,7 +3,7 @@ const config = {
   env: {
     node: true,
   },
-  extends: ['@alboe/eslint-config'],
+  extends: ['./config/eslint'],
 };
 
 module.exports = config;
