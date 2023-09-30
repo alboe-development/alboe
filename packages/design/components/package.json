@@ -1,0 +1,55 @@
+{
+  "name": "@alboe/design-components",
+  "packageManager": "yarn@3.4.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alboe-development/alboe.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": "18",
+    "npm": "8",
+    "yarn": "3"
+  },
+  "files": [
+    "./dist/*"
+  ],
+  "main": "./dist/module/index.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "build": "yarn build:dist && yarn build:docs",
+    "build:dist": "yarn build:dist:browser && yarn build:dist:module && yarn build:dist:types",
+    "build:dist:browser": "",
+    "build:dist:module": "tsc --declaration false --outDir ./dist/module",
+    "build:dist:types": "tsc --declaration --declarationMap --declarationDir ./dist/types --emitDeclarationOnly",
+    "build:docs": "yarn build:docs:api",
+    "build:docs:api": "yarn build:docs:api:metadata && yarn build:docs:api:markdown",
+    "build:docs:api:markdown": "api-documenter markdown --input-folder ./docs/api/metadata --output-folder ./docs/api/markdown",
+    "build:docs:api:metadata": "api-extractor run --local --verbose",
+    "clean": "yarn clean:dist && yarn clean:docs",
+    "clean:dist": "rimraf ./dist",
+    "clean:dist:module": "rimraf ./dist/module",
+    "clean:dist:types": "rimraf ./dist/types",
+    "clean:docs": "rimraf ./docs",
+    "clean:docs:api": "rimraf ./docs/api",
+    "clean:docs:api:metadata": "rimraf ./docs/api/metadata",
+    "clean:docs:api:markdown": "rimraf ./docs/api/markdown",
+    "test": "yarn test:dist && yarn test:src",
+    "test:dist": "yarn test:dist:module && yarn test:dist:browser",
+    "test:dist:module": "",
+    "test:dist:browser": "",
+    "test:src": "yarn test:src:style && yarn test:src:syntax",
+    "test:src:style": "eslint \"./{src,static,test}/**/*.{js,ts}\"",
+    "test:src:syntax": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@microsoft/api-documenter": "7.23.8",
+    "@microsoft/api-extractor": "7.37.3",
+    "eslint": "8.50.0",
+    "rimraf": "5.0.5",
+    "typescript": "5.0.4"
+  },
+  "dependencies": {
+    "lit": "2.8.0"
+  }
+}
