@@ -1,0 +1,51 @@
+{
+  "name": "@alboe/log-utils",
+  "packageManager": "yarn@3.4.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alboe-development/alboe.git"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "engines": {
+    "node": "20",
+    "npm": "10",
+    "yarn": "4"
+  },
+  "files": [
+    "./dist/*"
+  ],
+  "main": "./dist/module/index.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "build": "yarn build:module && yarn build:types && yarn build:docs",
+    "build:module": "tsc --declaration false --outDir ./dist/module --module CommonJS",
+    "build:types": "tsc --declaration --declarationMap --declarationDir ./dist/types --emitDeclarationOnly --module CommonJS",
+    "build:docs": "yarn build:docs:api",
+    "build:docs:api": "yarn build:docs:api:metadata && yarn build:docs:api:markdown",
+    "build:docs:api:markdown": "api-documenter markdown --input-folder ./dist/docs/api/metadata --output-folder ./dist/docs/api/markdown",
+    "build:docs:api:metadata": "api-extractor run --local --verbose",
+    "clean": "rimraf ./dist",
+    "clean:module": "rimraf ./dist/module",
+    "clean:types": "rimraf ./dist/types",
+    "clean:docs": "rimraf ./docs",
+    "clean:docs:api": "rimraf ./docs/api",
+    "clean:docs:api:metadata": "rimraf ./docs/api/metadata",
+    "clean:docs:api:markdown": "rimraf ./docs/api/markdown",
+    "test": "yarn test:dist && yarn test:src",
+    "test:dist": "yarn test:dist:module && yarn test:dist:browser",
+    "test:dist:module": "",
+    "test:src": "yarn test:src:style && yarn test:src:syntax",
+    "test:src:style": "eslint \"./{src,static,test}/**/*.{js,ts}\"",
+    "test:src:syntax": "tsc --noEmit",
+    "start": "node ./index.js"
+  },
+  "devDependencies": {
+    "@microsoft/api-documenter": "7.23.16",
+    "@microsoft/api-extractor": "7.39.1",
+    "@types/node": "^20.10.6",
+    "eslint": "8.56.0",
+    "rimraf": "5.0.5",
+    "typescript": "5.3.3"
+  }
+}
