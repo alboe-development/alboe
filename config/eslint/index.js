@@ -1,13 +1,9 @@
-require('@rushstack/eslint-patch/modern-module-resolution');
-
 const javascript = require('./javascript');
+const jest = require('./jest');
 const typescript = require('./typescript');
 
-const config = {
-  overrides: [],
+module.exports = {
+  javascript,
+  jest,
+  typescript,
 };
-
-config.overrides.push(...javascript.overrides);
-config.overrides.push(...typescript.overrides);
-
-module.exports = config;
