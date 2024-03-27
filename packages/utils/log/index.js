@@ -1,10 +1,5 @@
 const { Log, ConsoleTransport } = require('@alboe/log-utils');
 
-const log = new Log({
-  transports: [
-    new ConsoleTransport(),
-  ],
-});
+Log.mount(new ConsoleTransport());
 
-log.log('hello world');
-
+Log.log({ example: 'value' });
