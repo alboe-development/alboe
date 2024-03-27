@@ -18,6 +18,7 @@ const get = (options = {}) => {
           'import/prefer-default-export': 'off',
           'jsdoc/require-jsdoc': 'error',
           'max-len': ['error', { code: 120 }],
+          'no-confusing-arrow': 'off',
           'tsdoc/syntax': 'error',
         },
         settings: {
