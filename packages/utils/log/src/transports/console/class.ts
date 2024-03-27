@@ -1,7 +1,14 @@
 import { Entry, Transport } from '../../models';
 
-class Console extends Transport{
+/**
+ * The Console Transport class.
+ *
+ * @public
+ */
+class Console extends Transport {
+  // eslint-disable-next-line class-methods-use-this
   public process(entry: Entry): Promise<void> {
+    // eslint-disable-next-line no-console
     console.log(entry.data);
 
     return Promise.resolve();

@@ -1,6 +1,6 @@
 {
   "name": "@alboe/common-utils",
-  "packageManager": "yarn@3.4.1",
+  "packageManager": "yarn@4.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/alboe-development/alboe.git"
