@@ -10,6 +10,7 @@ const config = {
       statements: 100,
     },
   },
+  maxWorkers: 1,
   restoreMocks: true,
 };
 
