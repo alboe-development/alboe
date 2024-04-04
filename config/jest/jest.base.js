@@ -12,6 +12,7 @@ const config = {
   },
   maxWorkers: 1,
   restoreMocks: true,
+  verbose: true,
 };
 
 module.exports = config;
