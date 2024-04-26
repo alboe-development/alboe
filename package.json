@@ -20,6 +20,7 @@
     "postinstall:husky": "yarn husky install ./config/husky/hooks",
     "@workspaces": "yarn workspaces foreach --worktree --parallel --topological-dev --verbose",
     "@all": "yarn @workspaces run",
+    "@common": "yarn @workspaces --from \"@alboe/common-*\" run",
     "@utils": "yarn @workspaces --from \"@alboe/*-utils\" run"
   },
   "devDependencies": {

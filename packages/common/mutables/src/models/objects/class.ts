@@ -1,9 +1,16 @@
 /**
- * The Objects class.
+ * The Objects class definition.
  *
  * @remarks
- * This class is used as an enhancement to the existing Object class, by
- * providing additional Object-based methods.
+ * This class definition acts as an extension and enhancement of the default
+ * Object class within Node and Browser platforms.
+ *
+ * @example
+ * ```ts
+ * import { Objects } from '@alboe/common-mutables';
+ *
+ * const object = new Objects({ a: true, b: 2, c: 'three' });
+ * ```
  *
  * @public
  */
@@ -13,14 +20,13 @@ class Objects extends Object {
    *
    * @example
    * ```ts
-   * const { Objects } = require('@alboe/common-utils');
+   * const object = new Objects({ a: { b: { c: 'value' } } });
    *
-   * const obj = { a: { b: { c: 'value' }}};
+   * const results = Objects.deepFreeze(object)
    *
-   * const results = Objects.deepFreeze(obj);
-   *
-   * results.a.b.c = 'updated'; // Throws
-   * obj.a.b.c = 'updated'; // Throws
+   * object.a.b.c = 'four';
+   * console.log(object.a.b.c); // output => `three`.
+   * console.log(object === results); // output => `true`.
    * ```
    *
    * @param object - Object to deeply freeze.

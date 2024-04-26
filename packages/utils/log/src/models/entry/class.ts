@@ -1,9 +1,21 @@
-import * as crypto from 'crypto';
+import type { Possibly, Primative } from '@alboe/common-types';
 
 import type { Options } from './types';
 
 /**
- * The Entry class.
+ * The Entry class definition.
+ *
+ * @remarks
+ * This class is used to contain a single log entry.
+ *
+ * @example
+ * ```ts
+ * import { Entry } from '@alboe/log-utils';
+ * import type { EntryOptions } from '@alboe/log-utils';
+ *
+ * const options = { data: 'example-data', meta: { key: 'value' }};
+ * const entry = new Entry(options);
+ * ```
  *
  * @public
  */
@@ -11,50 +23,65 @@ class Entry {
   /**
    * Data associated with this instance.
    */
-  #data?: any;
+  #data?: string;
 
   /**
-   * The DateTime stamp associated with this instance.
+   * Metadata associated with this instance.
    */
-  #dts: string;
+  #meta: Record<string, Primative>;
 
   /**
-   * The unique identifier associated with this instance.
-   */
-  #id: string;
-
-  /**
-   * Construct a new instance.
+   * Construct a new instance of this class definition.
    *
-   * @param options - Options to be assigned to this instance.
+   * @param options - Options to use when constructing this instance.
    */
   public constructor(options: Options = {}) {
-    const { data, dts, id } = options;
+    this.#meta = {};
 
-    this.#data = data;
-    this.#dts = dts || new Date().toISOString();
-    this.#id = id || crypto.randomUUID();
+    this.set(options);
   }
 
   /**
    * Data associated with this instance.
    */
-  public get data(): any {
+  public get data(): Possibly<string> {
     return this.#data;
   }
 
   /**
-   * DateTime stamp associated with this instance.
+   * Metadata associated with this instance.
    */
-  public get dts(): string {
-    return this.#dts;
+  public get meta(): Record<string, Primative> {
+    return { ...this.#meta };
   }
 
   /**
-   * Unique identifier for this instance.
+   * Serial associated with this instance.
    */
-  public get id(): string {
-    return this.#id;
+  public get serial(): Options {
+    const { data, meta } = this;
+
+    return { data, meta };
+  }
+
+  /**
+   * Update this instance with the provided options.
+   *
+   * @param options - Options to use when updating this instance.
+   * @returns - This instance.
+   */
+  public set(options: Options = {}): this {
+    const { data, meta } = options;
+
+    if (data) {
+      this.#data = data;
+    }
+
+    if (meta) {
+      this.#meta = { ...meta };
+    }
+
+    return this;
   }
 }
 

@@ -1,3 +1,3 @@
-import Console from './class';
+import ConsoleTransport from './class';
 
-export default Console;
+export default ConsoleTransport;
