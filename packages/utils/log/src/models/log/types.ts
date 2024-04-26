@@ -1,13 +1,13 @@
-import Transport from '../transport';
+import Transport, { type TransportOptions } from '../transport';
 
 /**
- * Options to use when constructing a new instance.
+ * Options to use when constructing a new Log instance.
  *
  * @public
  */
-export interface Options {
+export interface Options extends TransportOptions {
   /**
-   * Transports to assign to the constructed instance.
+   * Transports to mount.
    */
   transports?: Array<Transport>;
 }

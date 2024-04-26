@@ -1,70 +1,115 @@
+import { Arrays } from '@alboe/common-mutables';
 import Entry from '../entry';
 import Transport from '../transport';
-
 import type { Options } from './types';
 
 /**
- * The Log class.
+ * The Log class definition.
+ *
+ * @remarks
+ * This class definition acts as the primary manager for all exports within this
+ * module.
+ *
+ * @example
+ * Constructed usage.
+ * ```ts
+ * import { Log } from '@alboe/log-utils';
+ * import { yourFilter, yourFormatter, YourTransport } from '@your/module';
+ *
+ * const log = new Log({
+ *   filters: [yourFilter],
+ *   formatters: [yourFormatter],
+ *   transports: [new YourTransport()],
+ * });
+ *
+ * log.process('message');
+ * ```
+ *
+ * @example
+ * Static usage.
+ * ```ts
+ * import { Log } from '@alboe/log-utils';
+ * import { yourFilter, yourFormatter, YourTransport } from '@your/module';
+ *
+ * const { instance } = Log;
+ *
+ * instance.mountFilters(yourFilter);
+ * instance.mountFormatters(yourFormatter);
+ * instance.mountTransports(new YourTransport());
+ *
+ * instance.process('message');
+ *
+ * // or, statically
+ *
+ * Log.process('message');
+ * ```
  *
  * @public
  */
-class Log {
+class Log extends Transport {
   /**
-   * Transports associated with this instance.
+   * Transport instances associated with this Log instance.
    */
-  #transports: Array<Transport>;
+  #transports: Arrays<Transport>;
 
   /**
-   * Construct a new instance.
+   * Construct a new instance of this class definition.
    *
-   * @param options - Options to be assigned to this instance.
+   * @param options - Options to use when constructing the instance.
    */
   public constructor(options: Options = {}) {
-    const { transports } = options;
+    const { transports = [], ...others } = options;
 
-    this.#transports = [];
+    super(others);
 
-    this.mount(...(Array.isArray(transports) ? transports : []));
+    this.#transports = new Arrays(...transports);
   }
 
   /**
-   * Transports associated with this instance.
+   * Transport instances associated with this Log instance.
    */
   public get transports(): Array<Transport> {
     return [...this.#transports];
   }
 
   /**
-   * Log the provided item or Entry.
-   *
-   * @param item - Item or Entry to log.
-   * @returns - Promise that resolves on success.
+   * Clear all Transport instances associated with this instance.
+   * @returns - This instance.
    */
-  public log(item: any | Entry): Promise<any> {
-    const entry = item instanceof Entry ? item : new Entry({ data: item });
-    const processes = this.#transports.map((transport) => transport.process(entry));
+  public clearTransports(): this {
+    this.unmountTransports(...this.#transports);
 
-    return Promise.all(processes);
+    return this;
   }
 
   /**
-   * Mount the provided Transport instances to this instance.
+   * Mount Transport instances to this instance.
    *
    * @param transports - Transport instances to mount.
    * @returns - This instance.
    */
-  public mount(...transports: Array<Transport>): this {
-    transports.forEach((transport) => {
-      if (transport instanceof Transport === false) {
-        return;
-      }
+  public mountTransports(...transports: Array<Transport>): this {
+    transports.forEach((transport) => this.#transports.append(transport));
 
-      if (this.transports.includes(transport)) {
-        return;
-      }
+    return this;
+  }
 
-      this.#transports.push(transport);
-    });
+  /**
+   * Set This instance based on the provided Options.
+   *
+   * @param options - Options to set This instance to.
+   * @returns - This instance.
+   */
+  public override set(options: Options = {}): this {
+    const { transports, ...other } = options;
+
+    this.clearTransports();
+
+    super.set(other);
+
+    if (transports) {
+      this.mountTransports(...transports);
+    }
 
     return this;
   }
@@ -72,74 +117,46 @@ class Log {
   /**
    * Unmount the provided Transport instances from this instance.
    *
-   * @param transports - Transport instances to unmount.
+   * @param transports - Transport instances to unmount from this instance.
    * @returns - This instance.
    */
-  public unmount(...transports: Array<Transport>): this {
-    transports.forEach((transport) => {
-      if (!this.transports.includes(transport)) {
-        return;
-      }
-
-      this.#transports.splice(transports.indexOf(transport), 1);
-    });
+  public unmountTransports(...transports: Array<Transport>): this {
+    transports.forEach((transport) => this.#transports.remove(transport));
 
     return this;
   }
 
   /**
-   * Log instance associated with this class definition.
-   */
-  static #instance: Log;
-
-  /**
-   * Log instance associated with this class definition.
+   * Write or log the provided Entry instance.
    *
-   * @remarks
-   * This getter creates a new instance if one does not exist.
+   * @param entry - Entry instance to write or log.
+   * @returns - This instance.
    */
-  static get instance(): Log {
+  protected write(entry: Entry): Promise<this> {
+    return Promise.all(this.#transports.map((transport) => transport.process(entry)))
+      .then(() => this);
+  }
+
+  static #instance?: Log;
+
+  public static get instance(): Log {
     if (!this.#instance) {
-      this.#instance = new this();
+      this.#instance = new Log();
     }
 
     return this.#instance;
   }
 
   /**
-   * Log the provided item or Entry.
+   * Process an Entry instance against this instance.
    *
-   * @param item - Item or Entry to log.
-   * @returns - Promise that resolves on success.
+   * @param entry - Entry instance to process.
+   * @returns - A Promise resolving in This instance.
    */
-  public static log(item: any | Entry): ReturnType<Log['log']> {
+  public static process(entry: Entry): Promise<Log> {
     const { instance } = this;
 
-    return instance.log(item);
-  }
-
-  /**
-   * Mount the provided Transport instances to the singleton instance.
-   *
-   * @param transports - Transport instances to mount.
-   * @returns - The singleton instance.
-   */
-  public static mount(...transports: Array<Transport>): ReturnType<Log['mount']> {
-    const { instance } = this;
-
-    return instance.mount(...transports);
-  }
-
-  /**
-   * Unmount the provided Transport instances from the singleton instance.
-   *
-   * @param transports - Transport instances to unmount.
-   * @returns - The singleton instance.
-   */
-  public static unmount(...transports: Array<Transport>): ReturnType<Log['unmount']> {
-    const { instance } = this;
-
-    return instance.unmount(...transports);
+    return instance.process(entry);
   }
 }
 

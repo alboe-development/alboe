@@ -7,7 +7,22 @@
  *
  * @packageDocumentation
  */
-export { Entry, Log, Transport } from './models';
-export { ConsoleTransport } from './transports';
+export {
+  DTSFormatter,
+  type DTSFormatterOptions,
+} from './formatters';
 
-export type { EntryOptions, LogOptions } from './models';
+export {
+  Entry,
+  type EntryOptions,
+  Formatter,
+  Log,
+  type LogOptions,
+  Transport,
+  type TransportFilter,
+  type TransportOptions,
+} from './models';
+
+export {
+  ConsoleTransport,
+} from './transports';

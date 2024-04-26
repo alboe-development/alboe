@@ -1,21 +1,18 @@
+import type { Primative } from '@alboe/common-types';
+
 /**
- * Options to use when constructing a new instance.
+ * Options used to construct a new instance.
  *
  * @public
  */
 export interface Options {
   /**
-   * Data to assign to the constructed instance.
+   * Data associated with this instance.
    */
-  data?: any;
+  data?: string;
 
   /**
-   * DateTime stamp to assign to the constructed instance.
+   * Metadata associated with this instance.
    */
-  dts?: string;
-
-  /**
-   * Unique identifier to assign to the constructed instance.
-   */
-  id?: string;
+  meta?: Record<string, Primative>;
 }
