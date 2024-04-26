@@ -12,21 +12,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alboe/common-utils@workspace:packages/utils/common":
+"@alboe/common-mutables@workspace:*, @alboe/common-mutables@workspace:packages/common/mutables":
   version: 0.0.0-use.local
-  resolution: "@alboe/common-utils@workspace:packages/utils/common"
+  resolution: "@alboe/common-mutables@workspace:packages/common/mutables"
   dependencies:
     "@microsoft/api-documenter": "npm:7.23.16"
     "@microsoft/api-extractor": "npm:7.39.1"
-    "@typescript-eslint/eslint-plugin": "npm:6.21.0"
-    "@typescript-eslint/parser": "npm:6.21.0"
+    "@types/node": "npm:20.10.6"
     eslint: "npm:8.56.0"
-    eslint-config-airbnb-base: "npm:15.0.0"
-    eslint-config-airbnb-typescript: "npm:17.1.0"
-    eslint-plugin-import: "npm:2.29.1"
-    eslint-plugin-jsdoc: "npm:48.0.5"
-    eslint-plugin-tsdoc: "npm:0.2.17"
     jest: "npm:29.7.0"
+    rimraf: "npm:5.0.5"
+    typescript: "npm:5.3.3"
+  languageName: unknown
+  linkType: soft
+
+"@alboe/common-types@workspace:*, @alboe/common-types@workspace:packages/common/types":
+  version: 0.0.0-use.local
+  resolution: "@alboe/common-types@workspace:packages/common/types"
+  dependencies:
+    "@microsoft/api-documenter": "npm:7.23.16"
+    "@microsoft/api-extractor": "npm:7.39.1"
+    "@types/node": "npm:20.10.6"
+    eslint: "npm:8.56.0"
     rimraf: "npm:5.0.5"
     typescript: "npm:5.3.3"
   languageName: unknown
@@ -36,6 +43,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alboe/log-utils@workspace:packages/utils/log"
   dependencies:
+    "@alboe/common-mutables": "workspace:*"
+    "@alboe/common-types": "workspace:*"
     "@microsoft/api-documenter": "npm:7.23.16"
     "@microsoft/api-extractor": "npm:7.39.1"
     "@types/node": "npm:20.10.6"
