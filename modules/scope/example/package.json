@@ -1,0 +1,38 @@
+{
+  "name": "@alboe/example-scope",
+  "packageManager": "yarn@4.5.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alboe-development/alboe.git"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "files": [
+    "./dist/*"
+  ],
+  "main": "./dist/module/index.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "analyze": "yarn analyze:style && yarn analyze:syntax",
+    "analyze:style": "eslint \"./{src,test}/**/*.{js,ts}\"",
+    "analyze:syntax": "tsc --noEmit",
+    "build": "yarn build:module && yarn build:types && yarn build:docs",
+    "build:docs": "yarn build:docs:api",
+    "build:docs:api": "yarn build:docs:api:metadata && yarn build:docs:api:markdown",
+    "build:docs:api:markdown": "api-documenter markdown --input-folder ./dist/docs/api/metadata --output-folder ./dist/docs/api/markdown",
+    "build:docs:api:metadata": "api-extractor run --local --verbose",
+    "build:module": "tsc --outDir ./dist/module",
+    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types",
+    "clean": "rimraf ./dist"
+  },
+  "devDependencies": {
+    "@alboe/api-extractor-config": "workspace:*",
+    "@alboe/eslint-config": "workspace:*",
+    "@alboe/typescript-config": "workspace:*",
+    "@microsoft/api-documenter": "^7",
+    "@microsoft/api-extractor": "^7",
+    "eslint": "^9",
+    "rimraf": "^6",
+    "typescript": "<5.6.0"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "@alboe/api-extractor-config",
+  "private": true,
+  "packageManager": "yarn@4.5.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alboe-development/alboe.git"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "files": [
+    "./static/*"
+  ],
+  "main": "./static/index.json"
+}
