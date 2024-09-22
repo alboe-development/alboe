@@ -1,0 +1,3 @@
+#!/bin/bash
+
+yarn dlx --package @commitlint/cli@19 commitlint --extends @commitlint/config-conventional --edit "$1"
