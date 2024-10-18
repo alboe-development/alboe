@@ -16,7 +16,7 @@ This project is designed as a platform to manage all projects developed within t
 
 This project has the following platform requirements:
 
-* **Node** *v20*
+* **Node** *v22*
 * **NPM** *v10*
 * **Yarn** *v4*
 
