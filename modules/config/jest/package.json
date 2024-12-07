@@ -1,0 +1,22 @@
+{
+  "name": "@alboe/jest-config",
+  "private": true,
+  "packageManager": "yarn@4.5.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alboe-development/alboe.git"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "files": [
+    "./static/*"
+  ],
+  "main": "./static/index.js",
+  "scripts": {
+    "analyze": "yarn analyze:style",
+    "analyze:style": "eslint"
+  },
+  "devDependencies": {
+    "eslint": "^9"
+  }
+}
