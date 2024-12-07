@@ -30,11 +30,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
-      "ES6",
+      "ESNext",
       "DOM",
       "webWorker"
     ],
     "module": "commonjs",
-    "target": "es6"
+    "target": "ESNext"
   }
 }
