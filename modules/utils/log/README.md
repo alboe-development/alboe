@@ -13,7 +13,7 @@ This package is an internal and private package used as a shared module for comm
 
 ## Installation
 
-Since this package is marked `private` as a part of its definition, it can only be consumed locally within the `alboe` project.
+Since this package is marked `internal` as a part of its definition, it can only be consumed locally within the `alboe` project.
 
 This package is meant to be consumed as a **dependency**.
 
