@@ -32,7 +32,6 @@
     "@alboe/api-extractor-config": "workspace:*",
     "@alboe/eslint-config": "workspace:*",
     "@alboe/jest-config": "workspace:*",
-    "@alboe/log-utils": "workspace:*",
     "@alboe/typescript-config": "workspace:*",
     "@jest/globals": "^29",
     "@microsoft/api-documenter": "^7",
