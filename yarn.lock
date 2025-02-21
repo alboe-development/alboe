@@ -11,11 +11,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alboe/design-components@workspace:modules/design/components":
+"@alboe/design-components@workspace:*, @alboe/design-components@workspace:modules/design/components":
   version: 0.0.0-use.local
   resolution: "@alboe/design-components@workspace:modules/design/components"
   dependencies:
     "@alboe/api-extractor-config": "workspace:*"
+    "@alboe/design-components": "workspace:*"
     "@alboe/eslint-config": "workspace:*"
     "@alboe/jest-config": "workspace:*"
     "@alboe/typescript-config": "workspace:*"
@@ -23,8 +24,6 @@ __metadata:
     "@microsoft/api-documenter": "npm:^7"
     "@microsoft/api-extractor": "npm:^7.49.2"
     eslint: "npm:^9"
-    jest: "npm:^29"
-    jest-silent-reporter: "npm:^0"
     lit: "npm:^3"
     rimraf: "npm:^6"
     typescript: "npm:<5.6.0"

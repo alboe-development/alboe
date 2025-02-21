@@ -18,6 +18,8 @@ abstract class Component extends LitElement {
    * The namespace to use when registering this component to the custom
    */
   public abstract get namespace(): string
+  
+  public static override styles = [];
 
   /**
    * Register a component.
