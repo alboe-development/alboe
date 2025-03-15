@@ -1,5 +1,5 @@
 const assert = require('node:assert');
-const { afterEach, beforeEach, describe, mock, it, verifyThat } = require('node:test');
+const { afterEach, beforeEach, describe, mock, it } = require('node:test');
 const { Component } = require('./class.fixture');
 
 describe('Component', () => {
@@ -14,20 +14,10 @@ describe('Component', () => {
     });
 
     describe('register()', () => {
-      let spies;
-
       beforeEach(() => {
         globalThis.customElements = {
           define: mock.fn(),
           get: mock.fn(),
-        };
-
-        spies = {
-          Component: {
-            prototype: {
-              namespace: mock.getter(Component.prototype, 'namespace'),
-            }
-          },
         };
       });
 
