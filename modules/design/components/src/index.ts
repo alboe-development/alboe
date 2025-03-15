@@ -5,5 +5,6 @@
  */
 export {
   Component,
-  type ComponentRegisterOptions
+  type ComponentRegisterOptions,
+  Provider,
 } from './models';
