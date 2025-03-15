@@ -1,4 +1,4 @@
-import { LitElement } from 'lit';
+import { type CSSResult, LitElement } from 'lit';
 import type { ComponentRegisterOptions } from './types';
 
 /**
@@ -17,9 +17,9 @@ abstract class Component extends LitElement {
   /**
    * The namespace to use when registering this component to the custom
    */
-  public abstract get namespace(): string
+  public abstract get namespace(): string;
   
-  public static override styles = [];
+  public static override styles: CSSResult[] = [];
 
   /**
    * Register a component.

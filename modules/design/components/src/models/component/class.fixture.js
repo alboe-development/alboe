@@ -4,8 +4,6 @@ class FixtureComponent extends Component {
   get namespace() {
     return 'adc-fixture-component';
   }
-
-  static styles = [];
 }
 
 module.exports = { Component: FixtureComponent };
