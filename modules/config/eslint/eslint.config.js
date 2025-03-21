@@ -3,7 +3,7 @@ const definition = require('./package.json');
 
 const config = [
   ...javascript({ definition }),
-  common,
+  ...common(),
 ];
 
 module.exports = config;
