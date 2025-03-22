@@ -27,6 +27,7 @@
     "esModuleInterop": true,
     "isolatedModules": true,
 
+    "useDefineForClassFields": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [

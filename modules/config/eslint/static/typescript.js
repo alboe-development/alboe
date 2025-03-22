@@ -30,6 +30,7 @@ const generate = () => {
         'jsdoc/require-jsdoc': [
           'warn',
           {
+            enableFixer: false,
             publicOnly: { ancestorsOnly: false },
             require: {
               FunctionDeclaration: true,
@@ -37,7 +38,6 @@ const generate = () => {
               ArrowFunctionExpression: true,
               ClassDeclaration: true,
               ClassExpression: true,
-              MethodDefinition: true,
             },
             contexts: [
               'VariableDeclaration',
