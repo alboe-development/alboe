@@ -44,6 +44,7 @@ const generate = (options = {}) => {
         'jsdoc/require-jsdoc': [
           'warn',
           {
+            enableFixer: false,
             publicOnly: { ancestorsOnly: false },
             require: {
               FunctionDeclaration: true,
