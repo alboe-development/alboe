@@ -1,0 +1,17 @@
+{
+  "source": ["src/mode/light.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "prefix": "adt",
+      "buildPath": "dist/mode/",
+      "options": {
+        "selector": "[adt-mode=\"light\"]"
+      },
+      "files": [{
+        "destination": "light.css",
+        "format": "css/variables"
+      }]
+    }
+  }
+}

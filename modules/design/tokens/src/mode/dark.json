@@ -1,0 +1,24 @@
+{
+  "color": {
+    "background": {
+      "container": {
+        "stronger": {
+          "$type": "color",
+          "$value": "#111111ff"
+        },
+        "strongest": {
+          "$type": "color",
+          "$value": "#000000ff"
+        }
+      }
+    },
+    "text": {
+      "container": {
+        "strongest": {
+          "$type": "color",
+          "$value": "#ffffffff"
+        }
+      }
+    }
+  }
+}

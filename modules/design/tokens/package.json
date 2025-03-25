@@ -1,0 +1,26 @@
+{
+  "name": "@alboe/design-tokens",
+  "packageManager": "yarn@4.5.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alboe-development/alboe.git"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "files": [
+    "./dist/*"
+  ],
+  "scripts": {
+    "build": "yarn build:dimension && yarn build:duration && yarn build:mode",
+    "build:dimension": "yarn build:dimension:medium",
+    "build:dimension:medium": "style-dictionary build --config ./config/dimension/medium.json",
+    "build:duration": "yarn build:duration:medium",
+    "build:duration:medium": "style-dictionary build --config ./config/duration/medium.json",
+    "build:mode": "yarn build:mode:dark && yarn build:mode:light",
+    "build:mode:dark": "style-dictionary build --config ./config/mode/dark.json",
+    "build:mode:light": "style-dictionary build --config ./config/mode/light.json"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4"
+  }
+}

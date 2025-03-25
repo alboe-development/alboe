@@ -1,0 +1,17 @@
+{
+  "source": ["src/duration/medium.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "prefix": "adt",
+      "buildPath": "dist/duration/",
+      "options": {
+        "selector": "[adt-duration=\"medium\"]"
+      },
+      "files": [{
+        "destination": "medium.css",
+        "format": "css/variables"
+      }]
+    }
+  }
+}

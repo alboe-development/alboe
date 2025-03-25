@@ -1,0 +1,18 @@
+{
+  "source": ["src/dimension/medium.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "transforms": ["size/pxToRem"],
+      "prefix": "adt",
+      "buildPath": "dist/dimension/",
+      "options": {
+        "selector": "[adt-dimension=\"medium\"]"
+      },
+      "files": [{
+        "destination": "medium.css",
+        "format": "css/variables"
+      }]
+    }
+  }
+}

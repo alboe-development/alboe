@@ -1,0 +1,17 @@
+{
+  "source": ["src/mode/dark.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "prefix": "adt",
+      "buildPath": "dist/mode/",
+      "options": {
+        "selector": "[adt-mode=\"dark\"]"
+      },
+      "files": [{
+        "destination": "dark.css",
+        "format": "css/variables"
+      }]
+    }
+  }
+}
