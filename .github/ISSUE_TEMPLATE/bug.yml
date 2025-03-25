@@ -1,0 +1,62 @@
+name: "Bug"
+description: "Report a Bug"
+title: "(Scope) Title"
+projects: ["alboe-development/4"]
+type: "Bug"
+body:
+  - type: markdown
+    attributes:
+        value: "# Bug"
+
+  - type: markdown
+    attributes:
+      value: "_Report a Bug._"
+
+  - type: input
+    id: scope
+    attributes:
+      label: "Scope"
+      description: "Please provide the name and version of all mdoules impacted by this bug."
+      placeholder: "@alboe/design-tokens@1.2.3, @alboe/design-components@3.2.1, @alboe/log-utils"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected Behavior"
+      description: "Please provide details on the expected behavior."
+      placeholder: "While consuming {scope} within {context}, {expectation}."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: "Actual Behavior"
+      description: "Please provide details on the actual behavior."
+      placeholder: "While consuming {scope} within {context}, {reality}."
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: "Environment Details"
+      description: "Please provide any environmental details that may help reach the resolution."
+      placeholder: "Device, Operating System, Runtime."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Reproduction Steps"
+      description: "Please provide any steps necessary to reproduce this bug."
+      placeholder: |
+        1. 
+        2. 
+        3.
+        (...4. )
+    validations:
+      required: true
