@@ -25,6 +25,9 @@ const generate = (options = {}) => {
   const languageOptions = { sourceType: type };
   const generalFiles = type === 'module' ? ['**/*.{js,cjs}'] : ['**/*.{js,mjs}'];
   const sourceFiles = type === 'module' ? ['{src,static}/**/*.{js,cjs}'] : ['{src,static}/**/*.{js,mjs}'];
+  const sourceIgnores = type === 'module'
+    ? ['{src,static}/**/*.{fixture,test}.{js,cjs}']
+    : ['{src,static}/**/*.{fixture,test}.{js,mjs}'];
 
   const general = [
     javascript.configs.recommended,
@@ -62,6 +65,7 @@ const generate = (options = {}) => {
   ].map((config) => ({
     ...config,
     files: sourceFiles,
+    ignores: sourceIgnores,
   }));
 
   return [
