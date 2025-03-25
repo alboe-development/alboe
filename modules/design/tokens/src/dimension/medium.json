@@ -1,0 +1,12 @@
+{
+  "dimension": {
+    "radius": {
+      "container": {
+        "neutral": {
+          "$value": "16px",
+          "$type": "dimension"
+        }
+      }
+    }
+  }
+}

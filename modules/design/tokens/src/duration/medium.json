@@ -1,0 +1,12 @@
+{
+  "duration": {
+    "animation": {
+      "container": {
+        "neutral": {
+          "$value": "0.2s",
+          "$type": "duration"
+        }
+      }
+    }
+  }
+}
