@@ -1,11 +1,7 @@
-# Description
+### Context
 
-*insert a brief description of the changes made in this pull request.*
+<!-- A brief description of the changes made in this pull request. -->
 
-# Screenshots
+### Links
 
-*optional screenshots to represent the changes in this pull request.*
-
-# Links
-
-*optional links to relevant resources to this pull request.*
+<!-- Optional links to relevant resources to this pull request. -->
