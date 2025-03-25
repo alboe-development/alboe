@@ -1,0 +1,53 @@
+name: "Task"
+description: "An Engineer Task"
+title: "(Scope) Title"
+projects: ["alboe-development/4"]
+type: "Task"
+body:
+  - type: markdown
+    attributes:
+        value: "# Task"
+
+  - type: markdown
+    attributes:
+      value: "_An Engineer Task._"
+
+  - type: textarea
+    id: context
+    attributes:
+      label: "Context"
+      description: "The context of this Task."
+      placeholder: "In order to {resolution}, {definition}."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "Requirements"
+      description: "Requirements needed to fulfil this Task."
+      placeholder: |
+        - {requirement}
+        - {requirement}
+        - {requirement}
+        - {...}
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "Notes"
+      description: "Additional notes associated with this Story. (Optional)"
+      placeholder: "{...additional notes relating to this issue}"
+
+  - type: textarea
+    id: links
+    attributes:
+      label: "Links"
+      description: "Links related to this Story. (Optional)"
+      placeholder: |
+        - {link}
+        - {link}
+        - {link}
+        - {...}
