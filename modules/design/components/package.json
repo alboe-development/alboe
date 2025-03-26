@@ -23,7 +23,7 @@
     "build:module": "tsc --outDir ./dist/module",
     "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types",
     "test": "pnpm test:module",
-    "test:module": "node --test --no-warnings --experimental-test-coverage --test-coverage-include=\"dist/module/**/*.js\" --test-coverage-lines=100"
+    "test:module": "node --test --no-warnings --experimental-test-coverage --test-reporter=spec --test-coverage-include=\"dist/module/**/*.js\" --test-coverage-lines=100"
   },
   "dependencies": {
     "lit": "^3"

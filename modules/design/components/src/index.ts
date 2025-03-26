@@ -6,5 +6,9 @@
 export {
   Component,
   type ComponentRegisterOptions,
-  Provider,
 } from './models';
+
+export {
+  TokenProvider,
+  type TokenProviderProperties,
+} from './providers';

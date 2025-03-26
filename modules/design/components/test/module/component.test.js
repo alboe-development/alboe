@@ -1,6 +1,6 @@
 const assert = require('node:assert');
 const { afterEach, beforeEach, describe, mock, it } = require('node:test');
-const { Component } = require('./class.fixture');
+const { Component } = require('./component.fixture');
 
 describe('Component', () => {
   describe('static', () => {
