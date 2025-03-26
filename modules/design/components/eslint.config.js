@@ -4,7 +4,7 @@ const definition = require('./package.json');
 const config = [
   ...javascript({ definition }),
   ...typescript({ definition }),
-  common,
+  ...common(),
 ];
 
 module.exports = config;
