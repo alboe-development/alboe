@@ -1,6 +1,9 @@
 {
   "name": "alboe",
-  "packageManager": "yarn@4.5.0",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10"
+  },
   "private": true,
   "repository": {
     "type": "git",
@@ -11,18 +14,27 @@
     "modules/**/*"
   ],
   "scripts": {
-    "postinstall": "yarn postinstall:husky",
-    "postinstall:husky": "yarn dlx husky",
-    "@workspaces": "yarn workspaces foreach --worktree --parallel --topological-dev",
-    "@all": "yarn @workspaces run",
-    "@common": "yarn @workspaces --from \"@alboe/common-*\" run",
-    "@utils": "yarn @workspaces --from \"@alboe/*-utils\" run",
+    "prepare": "pnpm prepare:husky",
+    "prepare:husky": "pnpm exec husky",
+    "@workspaces": "pnpm --parallel --reporter=append-only --aggregate-output",
+    "@config": "pnpm @workspaces --filter @alboe/*-config",
+    "@design": "pnpm @workspaces --filter @alboe/design-*",
+    "@utils": "pnpm @workspaces --filter @alboe/*-utils",
     "clean": "yarn clean:dependencies && yarn clean:distribution",
     "clean:dependencies": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "clean:distribution": "find . -name 'dist' -type d -prune -exec rm -rf '{}' +"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19",
     "@commitlint/config-conventional": "^19",
-    "eslint": "^9"
+    "eslint": "catalog:",
+    "husky": "^9"
+  },
+  "pnpm": {
+    "allowedDeprecatedVersions": {
+      "glob": "*",
+      "inflight": "*",
+      "rimraf": "*"
+    }
   }
 }
