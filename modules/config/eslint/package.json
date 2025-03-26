@@ -1,7 +1,6 @@
 {
   "name": "@alboe/eslint-config",
   "private": true,
-  "packageManager": "yarn@4.5.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/alboe-development/alboe.git"
@@ -13,7 +12,7 @@
   ],
   "main": "./static/index.js",
   "scripts": {
-    "test": "yarn test:style",
+    "test": "pnpm test:style",
     "test:style": "eslint"
   },
   "dependencies": {
@@ -23,9 +22,9 @@
     "typescript-eslint": "^8"
   },
   "devDependencies": {
-    "eslint": "^9"
+    "eslint": "catalog:"
   },
   "optionalDependencies": {
-    "typescript": "<5.6.0"
+    "typescript": "catalog:"
   }
 }
