@@ -1,7 +1,27 @@
 {
   "color": {
     "background": {
-      "container": {
+      "layout": {
+        "weakest": {
+          "$type": "color",
+          "$value": "#666666ff"
+        },
+        "weaker": {
+          "$type": "color",
+          "$value": "#555555ff"
+        },
+        "weak": {
+          "$type": "color",
+          "$value": "#444444ff"
+        },
+        "normal": {
+          "$type": "color",
+          "$value": "#333333ff"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "#222222ff"
+        },
         "stronger": {
           "$type": "color",
           "$value": "#111111ff"
@@ -13,7 +33,7 @@
       }
     },
     "text": {
-      "container": {
+      "layout": {
         "strongest": {
           "$type": "color",
           "$value": "#ffffffff"

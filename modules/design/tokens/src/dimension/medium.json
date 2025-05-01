@@ -1,10 +1,42 @@
 {
   "dimension": {
+    "size": {
+      "layout": {
+        "smallest": {
+          "$type": "dimension",
+          "$value": "32px"
+        },
+        "smaller": {
+          "$type": "dimension",
+          "$value": "48px"
+        },
+        "small": {
+          "$type": "dimension",
+          "$value": "64px"
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "96px"
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "128px"
+        },
+        "larger": {
+          "$type": "dimension",
+          "$value": "196px"
+        },
+        "largest": {
+          "$type": "dimension",
+          "$value": "256px"
+        }
+      }
+    },
     "radius": {
-      "container": {
-        "neutral": {
-          "$value": "16px",
-          "$type": "dimension"
+      "layout": {
+        "medium": {
+          "$type": "dimension",
+          "$value": "16px"
         }
       }
     }
