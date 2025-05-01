@@ -1,9 +1,9 @@
 /**
- * Properties to be utilized within a `<adc-token-provider />` component.
+ * Properties to be utilized within this component.
  * 
  * @public
  */
-export interface TokenProviderProperties {
+export interface Properties {
   /**
    * Dimension token scope to utilize.
    */
