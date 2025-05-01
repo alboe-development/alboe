@@ -3,7 +3,7 @@
  * 
  * @public
  */
-export interface ComponentRegisterOptions {
+export interface RegisterOptions {
   /**
    * The Component to use when registering.
    * 

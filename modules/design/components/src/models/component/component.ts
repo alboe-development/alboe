@@ -1,5 +1,5 @@
-import { type CSSResult, LitElement } from 'lit';
-import type { ComponentRegisterOptions } from './types';
+import { type CSSResult, html, LitElement } from 'lit';
+import type { RegisterOptions } from './types';
 
 /**
  * The core Component for this project.
@@ -27,7 +27,7 @@ abstract class Component extends LitElement {
    * @param options - Options to use.
    * @returns - Void.
    */
-  public static register(options: ComponentRegisterOptions = {}): void {
+  public static register(options: RegisterOptions = {}): void {
     const {
       component = this,
       namespace = this.prototype.namespace,
@@ -39,6 +39,10 @@ abstract class Component extends LitElement {
     }
 
     registry.define(namespace, component as unknown as CustomElementConstructor);
+  }
+
+  public override render() {
+    return html`<slot></slot>`;
   }
 }
 

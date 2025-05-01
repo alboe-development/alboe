@@ -1,18 +1,18 @@
-import { Component } from '../../models';
+import * as Models from '../../models';
 import { CONSTANTS } from './constants';
 import { styles } from './styles';
-import type { TokenProviderProperties } from './types';
+import type { Properties } from './types';
 
 /**
- * The Token Provider Component.
+ * The Provider Token Component.
  * 
  * @remarks
- * this component acts as a simple translation layer from DOM-specified
+ * This component acts as a simple translation layer from DOM-specified
  * attributes to all nested components.
  * 
  * @public
  */
-class TokenProvider extends Component implements TokenProviderProperties {
+class Component extends Models.Component.Component implements Properties {
   public dimension?: string;
 
   public duration?: string;
@@ -30,13 +30,6 @@ class TokenProvider extends Component implements TokenProviderProperties {
   };
 
   public static override styles = [...super.styles, styles];
-
-  /**
-   * Constants associated with this TokenProvider Component.
-   */
-  public static get CONSTANTS() {
-    return CONSTANTS;
-  }
 }
 
-export { TokenProvider };
+export { Component };

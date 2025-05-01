@@ -1,4 +1,1 @@
-export {
-  TokenProvider,
-  type TokenProviderProperties,
-} from './token';
+export * as Token from './token';

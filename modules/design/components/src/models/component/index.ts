@@ -1,2 +1,2 @@
-export { Component } from './component';
-export type { ComponentRegisterOptions } from './types';
+export * from './component';
+export * from './types';

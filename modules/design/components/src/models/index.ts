@@ -1,4 +1,1 @@
-export {
-  Component,
-  type ComponentRegisterOptions,
-} from './component';
+export * as Component from './component';
