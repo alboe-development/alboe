@@ -16,7 +16,7 @@
   "scripts": {
     "prepare": "pnpm prepare:husky",
     "prepare:husky": "pnpm exec husky",
-    "@workspaces": "pnpm --parallel --reporter=append-only --aggregate-output",
+    "@workspaces": "pnpm -r",
     "@config": "pnpm @workspaces --filter @alboe/*-config",
     "@design": "pnpm @workspaces --filter @alboe/design-*",
     "@utils": "pnpm @workspaces --filter @alboe/*-utils",

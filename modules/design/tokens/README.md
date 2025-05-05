@@ -1,10 +1,10 @@
-# @alboe/common-types
+# @alboe/design-tokens
 
 [![license: mit](https://img.shields.io/badge/License-MIT-blueviolet?style=flat-square)](https://github.com/alboe-development/alboe/blob/main/LICENSE)
 ![state: beta](https://img.shields.io/badge/State\-Beta-blue?style=flat-square)
 ![scope: public](https://img.shields.io/badge/Scope-Internal-red?style=flat-square)
 
-This package is used as a library for all common types used within the `alboe` project.
+This package is used as an asset library for all design tokens officially provided by the `alboe` project.
 
 * [Installation](#installation)
 * [Usage](#usage)
@@ -13,16 +13,29 @@ This package is used as a library for all common types used within the `alboe` p
 
 ## Installation
 
-This package is meant to be consumed as a **developer dependency** within the scope of this project.
+This package is meant to be consumed as a **dependency**.
 
-Installation, local to this project, can be performed by updating the **developer dependencies** of a `./package.json` file:
+Installation, external of this project, can be performed by using the following commands:
+
+```bash
+# npm
+npm install @alboe/design-tokens
+
+# yarn
+yarn add @alboe/design-tokens
+
+# pnpm
+pnpm install @alboe/design-tokens
+```
+
+Installation, local to this project, can be performed by updating the **dependencies** of a `./package.json` file:
 
 ```jsonc
 {
   /* ... */
-  "devDependencies": {
+  "dependencies": {
     /* ... */
-    "@alboe/common-types": "workspace:~"
+    "@alboe/design-tokens": "workspace:~"
   }
 }
 ```

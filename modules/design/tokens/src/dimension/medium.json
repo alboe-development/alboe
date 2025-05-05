@@ -1,5 +1,101 @@
 {
   "dimension": {
+    "margin": {
+      "layout": {
+        "smallest": {
+          "$type": "dimension",
+          "$value": "1px"
+        },
+        "smaller": {
+          "$type": "dimension",
+          "$value": "2px"
+        },
+        "small": {
+          "$type": "dimension",
+          "$value": "4px"
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "8px"
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "12px"
+        },
+        "larger": {
+          "$type": "dimension",
+          "$value": "16px"
+        },
+        "largest": {
+          "$type": "dimension",
+          "$value": "32px"
+        }
+      }
+    },
+    "padding": {
+      "layout": {
+        "smallest": {
+          "$type": "dimension",
+          "$value": "1px"
+        },
+        "smaller": {
+          "$type": "dimension",
+          "$value": "2px"
+        },
+        "small": {
+          "$type": "dimension",
+          "$value": "4px"
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "8px"
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "12px"
+        },
+        "larger": {
+          "$type": "dimension",
+          "$value": "16px"
+        },
+        "largest": {
+          "$type": "dimension",
+          "$value": "32px"
+        }
+      }
+    },
+    "radius": {
+      "layout": {
+        "smallest": {
+          "$type": "dimension",
+          "$value": "2px"
+        },
+        "smaller": {
+          "$type": "dimension",
+          "$value": "4px"
+        },
+        "small": {
+          "$type": "dimension",
+          "$value": "6px"
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "8px"
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "12px"
+        },
+        "larger": {
+          "$type": "dimension",
+          "$value": "16px"
+        },
+        "largest": {
+          "$type": "dimension",
+          "$value": "32px"
+        }
+      }
+    },
     "size": {
       "layout": {
         "smallest": {
@@ -29,14 +125,6 @@
         "largest": {
           "$type": "dimension",
           "$value": "256px"
-        }
-      }
-    },
-    "radius": {
-      "layout": {
-        "medium": {
-          "$type": "dimension",
-          "$value": "16px"
         }
       }
     }
