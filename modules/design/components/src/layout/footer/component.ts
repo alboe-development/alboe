@@ -5,10 +5,10 @@ import { tokens } from './tokens';
 import type { Properties, Size } from './types';
 
 /**
- * The Layout Header Component.
+ * The Layout Footer Component.
  *
  * @remarks
- * This component acts as a header within a page's layout.
+ * This component acts as a footer within a page's layout.
  *
  * @public
  */
