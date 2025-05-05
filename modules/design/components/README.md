@@ -15,10 +15,29 @@ This package is used as a library for all components officially supported by the
 
 This package is meant to be consumed as a **dependency**.
 
-Installation, local to this project, can be performed by using the following commands:
+Installation, external of this project, can be performed by using the following commands:
 
 ```bash
-yarn workspace @{scope}/{package} add @alboe/design-components
+# npm
+npm install @alboe/design-components
+
+# yarn
+yarn add @alboe/design-components
+
+# pnpm
+pnpm install @alboe/design-components
+```
+
+Installation, local to this project, can be performed by updating the **dependencies** of a `./package.json` file:
+
+```jsonc
+{
+  /* ... */
+  "dependencies": {
+    /* ... */
+    "@alboe/design-components": "workspace:~"
+  }
+}
 ```
 
 ## Usage

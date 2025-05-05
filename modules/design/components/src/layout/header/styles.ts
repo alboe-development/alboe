@@ -7,10 +7,9 @@ import { css } from 'lit';
  */
 const styles = css`
 :host {
-  align-items: center;
   background-color: var(--adc-layout-header-color-background);
   color: var(--adc-layout-header-color-text);
-  display: flex;
+  display: block;
   flex-grow: 0;
   flex-shrink: 0;
   height: var(--adc-layout-header-dimension-height);
@@ -20,6 +19,7 @@ const styles = css`
 :host {
   --adc-layout-header-color-text: var(--adc-layout-header-color-text-normal);
   --adc-layout-header-color-background: var(--adc-layout-header-color-background-normal);
+  --adc-layout-header-dimension-height: var(--adc-layout-header-dimension-height-medium);
 }
 
 :host([size="large"]) {
