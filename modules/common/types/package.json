@@ -24,10 +24,10 @@
     "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types"
   },
   "devDependencies": {
-    "@alboe/api-extractor-config": "workspace:~",
-    "@alboe/design-components": "workspace:~",
-    "@alboe/eslint-config": "workspace:~",
-    "@alboe/typescript-config": "workspace:~",
+    "@alboe/api-extractor-config": "workspace:*",
+    "@alboe/design-components": "workspace:*",
+    "@alboe/eslint-config": "workspace:*",
+    "@alboe/typescript-config": "workspace:*",
     "@microsoft/api-documenter": "catalog:",
     "@microsoft/api-extractor": "catalog:",
     "eslint": "catalog:",
