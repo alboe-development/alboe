@@ -1,0 +1,38 @@
+{
+  "name": "@alboe/module-tools",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alboe-development/alboe.git"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "files": [
+    "./dist/*"
+  ],
+  "main": "./dist/module/index.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "analyze": "pnpm analyze:style && pnpm analyze:syntax",
+    "analyze:style": "eslint \"./{src,test}/**/*.{js,ts}\"",
+    "analyze:syntax": "tsc --noEmit",
+    "build": "pnpm build:module && pnpm build:types && pnpm build:docs",
+    "build:docs": "pnpm build:docs:api",
+    "build:docs:api": "pnpm build:docs:api:metadata && pnpm build:docs:api:markdown",
+    "build:docs:api:markdown": "api-documenter markdown --input-folder ./dist/docs/api/metadata --output-folder ./dist/docs/api/markdown",
+    "build:docs:api:metadata": "api-extractor run --local --verbose",
+    "build:module": "tsc --outDir ./dist/module",
+    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types",
+    "test": "pnpm test:module && pnpm test:coverage",
+    "test:coverage": "pnpm test:module --coverage --reporters=\"jest-silent-reporter\"",
+    "test:module": "jest"
+  },
+  "devDependencies": {
+    "@alboe/api-extractor-config": "workspace:*",
+    "@alboe/eslint-config": "workspace:*",
+    "@alboe/typescript-config": "workspace:*",
+    "@microsoft/api-documenter": "catalog:",
+    "@microsoft/api-extractor": "catalog:",
+    "eslint": "catalog:",
+    "typescript": "catalog:"
+  }
+}
