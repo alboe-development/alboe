@@ -99,6 +99,9 @@ importers:
       '@alboe/api-extractor-config':
         specifier: workspace:*
         version: link:../../config/api-extractor
+      '@alboe/common-types':
+        specifier: workspace:*
+        version: link:../../common/types
       '@alboe/design-components':
         specifier: workspace:*
         version: 'link:'
@@ -126,6 +129,30 @@ importers:
       style-dictionary:
         specifier: ^4
         version: 4.4.0
+
+  modules/tools/module:
+    devDependencies:
+      '@alboe/api-extractor-config':
+        specifier: workspace:*
+        version: link:../../config/api-extractor
+      '@alboe/eslint-config':
+        specifier: workspace:*
+        version: link:../../config/eslint
+      '@alboe/typescript-config':
+        specifier: workspace:*
+        version: link:../../config/typescript
+      '@microsoft/api-documenter':
+        specifier: 'catalog:'
+        version: 7.27.4(@types/node@24.10.0)
+      '@microsoft/api-extractor':
+        specifier: 'catalog:'
+        version: 7.54.0(@types/node@24.10.0)
+      eslint:
+        specifier: 'catalog:'
+        version: 9.39.1(jiti@2.6.1)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.8.3
 
   modules/utils/log:
     devDependencies:
