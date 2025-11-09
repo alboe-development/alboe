@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@alboe/api-extractor-config": "workspace:*",
+    "@alboe/common-types": "workspace:*",
     "@alboe/design-components": "workspace:*",
     "@alboe/eslint-config": "workspace:*",
     "@alboe/typescript-config": "workspace:*",
