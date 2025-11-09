@@ -1,5 +1,5 @@
 {
-  "name": "@alboe/design-components",
+  "name": "@alboe/module-tools",
   "repository": {
     "type": "git",
     "url": "https://github.com/alboe-development/alboe.git"
@@ -21,15 +21,13 @@
     "build:docs:api:markdown": "api-documenter markdown --input-folder ./dist/docs/api/metadata --output-folder ./dist/docs/api/markdown",
     "build:docs:api:metadata": "api-extractor run --local --verbose",
     "build:module": "tsc --outDir ./dist/module",
-    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types"
-  },
-  "dependencies": {
-    "lit": "^3"
+    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types",
+    "test": "pnpm test:module && pnpm test:coverage",
+    "test:coverage": "pnpm test:module --coverage --reporters=\"jest-silent-reporter\"",
+    "test:module": "jest"
   },
   "devDependencies": {
     "@alboe/api-extractor-config": "workspace:*",
-    "@alboe/common-types": "workspace:*",
-    "@alboe/design-components": "workspace:*",
     "@alboe/eslint-config": "workspace:*",
     "@alboe/typescript-config": "workspace:*",
     "@microsoft/api-documenter": "catalog:",
