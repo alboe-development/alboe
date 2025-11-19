@@ -22,14 +22,6 @@ This project has the following platform requirements:
 
 This project uses a collection of dependencies that can be inferred from all contained [package definition files](https://docs.npmjs.com/cli/v10/configuring-npm/package-json) within this project.
 
-## Packages
-
-Below is a list of all packages in their respective scopes available in this project:
-
-* **utils**
-  * [@alboe/common-utils](packages/utils/common/)
-  * [@alboe/log-utils](packages/utils/log/)
-
 ## Contribute
 
 Please see [CONTRIBUTING.md](https://github.com/alboe-development/alboe/blob/main/CONTRIBUTING.md) for more details.
