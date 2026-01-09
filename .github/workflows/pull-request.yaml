@@ -1,0 +1,108 @@
+name: Pull Request Action
+run-name: Pull Request Action - ${{ github.actor }}
+
+on:
+  pull_request_target:
+    branches:
+      - main
+    types: [opened, reopened, synchronize, labeled]
+
+env:
+  id: ${{ github.run_id }}-${{ github.run_number }}
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Labels
+        run: |
+          HEAD_REPO=${{ github.event.pull_request.head.repo.full_name }}
+          BASE_REPO=${{ github.event.pull_request.base.repo.full_name }}
+          FROM_BASE=0; [ "$HEAD_REPO" == "$BASE_REPO" ] && FROM_BASE=1
+
+          HAS_VALIDATED_LABEL=${{ contains(github.event.pull_request.labels.*.name, 'validated') || contains(github.event.workflow_run.labels.*.name, 'validated') || contains(github.event.label.name, 'validated') }}
+          VALIDATED=0; [ "$HAS_VALIDATED_LABEL" == "true" ] && VALIDATED=1
+
+          echo github.event
+          
+          echo from base $FROM_BASE
+          echo validated $VALIDATED
+
+          if [[ $FROM_BASE == 1 || $VALIDATED == 1 ]]
+          then
+            echo 'Pull request is validated, continuing.'
+            exit 0
+          else
+            echo 'Pull request is not validated, exiting.'
+            exit 1
+          fi
+
+  initialize:
+    name: Initialize
+    needs: validate
+    runs-on: ubuntu-slim
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Install Tools
+        uses: actions/setup-node@6
+        with:
+          cache: 'pnpm'
+          node-version-file: '.nvmrc'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+  build:
+    name: Build
+    needs: initialize
+    runs-on: ubuntu-slim
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Install Tools
+        uses: actions/setup-node@6
+        with:
+          cache: 'pnpm'
+          node-version-file: '.nvmrc'
+
+      - name: Build Workspaces
+        run: pnpm @workspaces build
+
+      - name: Cache Distributions
+        uses: actions/cache@v5
+        with:
+          path: '**/dist'
+          key: dist-${{ env.id }}
+
+  test:
+    name: Test
+    needs: build
+    runs-on: ubuntu-slim
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Install Tools
+        uses: actions/setup-node@6
+        with:
+          cache: 'pnpm'
+          node-version-file: '.nvmrc'
+
+      - name: Uncache Distributions
+        uses: actions/cache@v5
+        with:
+          path: '**/dist'
+          key: dist-${{ env.id }}
+
+      - name: Test
+        run: pnpm @workspaces test
