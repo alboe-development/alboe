@@ -83,6 +83,9 @@ jobs:
           cache: 'pnpm'
           node-version-file: '.nvmrc'
 
+      - name: Sync Dependencies
+        run: pnpm install
+
       - name: Build Workspaces
         run: pnpm @workspaces build
 
@@ -102,11 +105,19 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Install Tools
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Install Node
         uses: actions/setup-node@v6
         with:
           cache: 'pnpm'
           node-version-file: '.nvmrc'
+
+      - name: Sync Dependencies
+        run: pnpm install
 
       - name: Uncache Distributions
         uses: actions/cache@v5
