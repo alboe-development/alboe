@@ -16,25 +16,18 @@
   "scripts": {
     "prepare": "pnpm prepare:husky",
     "prepare:husky": "pnpm exec husky",
-    "@workspaces": "pnpm -r",
+    "@workspaces": "pnpm run -r",
+    "@app": "pnpm @workspaces --filter @alboe/*-app",
     "@config": "pnpm @workspaces --filter @alboe/*-config",
-    "@design": "pnpm @workspaces --filter @alboe/design-*",
-    "@utils": "pnpm @workspaces --filter @alboe/*-utils",
     "clean": "yarn clean:dependencies && yarn clean:distribution",
     "clean:dependencies": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "clean:distribution": "find . -name 'dist' -type d -prune -exec rm -rf '{}' +"
   },
   "devDependencies": {
+    "@alboe/eslint-config": "workspace:*",
     "@commitlint/cli": "^19",
     "@commitlint/config-conventional": "^19",
     "eslint": "catalog:",
     "husky": "^9"
-  },
-  "pnpm": {
-    "allowedDeprecatedVersions": {
-      "glob": "*",
-      "inflight": "*",
-      "rimraf": "*"
-    }
   }
 }

@@ -1,8 +1,7 @@
 # @alboe/api-extractor-config
 
 [![license: mit](https://img.shields.io/badge/License-MIT-blueviolet?style=flat-square)](https://github.com/alboe-development/alboe/blob/main/LICENSE)
-![state: beta](https://img.shields.io/badge/State\-Beta-blue?style=flat-square)
-![scope: internal](https://img.shields.io/badge/Scope-Internal-red?style=flat-square)
+![state: alpha](https://img.shields.io/badge/State\-Beta-blue?style=flat-square)
 
 The contents of this module are used as a shared collection of scripts and files when applying a standard [API Extractor](https://api-extractor.com/) configuration to modules within this project.
 
@@ -23,10 +22,10 @@ Installation of the **dependencies** can be performed by using the following com
 
 ```bash
 # usage within a workspaces environment
-yarn workspace @{scope}/{package} add --dev @microsft/api-extractor @microsft/api-documenter @alboe/api-extractor-config
+yarn workspace @{scope}/{package} add --dev @microsoft/api-extractor @microsoft/api-documenter @alboe/api-extractor-config
 
 # usage outside of a workspaces environment
-yarn add --dev @microsoft/api-extractor @microsft/api-documenter @alboe/api-extractor-config
+yarn add --dev @microsoft/api-extractor @microsoft/api-documenter @alboe/api-extractor-config
 ```
 
 ## Usage

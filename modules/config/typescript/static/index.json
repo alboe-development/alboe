@@ -35,7 +35,7 @@
       "DOM",
       "webWorker"
     ],
-    "module": "commonjs",
+    "module": "ES6",
     "target": "ESNext"
   }
 }

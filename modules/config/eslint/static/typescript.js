@@ -1,6 +1,6 @@
-const typescript = require('typescript-eslint');
-const jsdoc = require('eslint-plugin-jsdoc');
-const tsdoc = require('eslint-plugin-tsdoc');
+import typescript from 'typescript-eslint';
+import jsdoc from 'eslint-plugin-jsdoc';
+import tsdoc from 'eslint-plugin-tsdoc';
 
 /**
  * Generate ESLint TypeScript configuration for a module within this project.
@@ -8,7 +8,12 @@ const tsdoc = require('eslint-plugin-tsdoc');
  * @returns {Array} - The generated configuration.
  */
 const generate = () => {
-  const languageOptions = { parser: typescript.parser };
+  const languageOptions = {
+    parser: typescript.parser,
+    parserOptions: {
+      tsconfigRootDir: import.meta.dirname,
+    },
+  };
 
   const general = [
     ...typescript.configs.recommended,
@@ -63,4 +68,6 @@ const generate = () => {
   ];
 };
 
-module.exports = generate;
+export {
+  generate as typescript,
+};

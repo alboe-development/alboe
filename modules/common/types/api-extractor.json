@@ -1,4 +1,0 @@
-{
-  "extends": "@alboe/api-extractor-config",
-  "projectFolder": "."
-}

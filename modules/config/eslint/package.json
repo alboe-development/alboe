@@ -6,10 +6,10 @@
     "url": "https://github.com/alboe-development/alboe.git"
   },
   "license": "MIT",
-  "type": "commonjs",
   "files": [
     "./static/*"
   ],
+  "type": "module",
   "main": "./static/index.js",
   "scripts": {
     "test": "pnpm test:style",

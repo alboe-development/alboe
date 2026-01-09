@@ -61,8 +61,8 @@ Add the following scripts to the focused project's `./package.json` file to alig
     "build": "{...other build commands...} && yarn build:module && yarn build:types",
     "build:module": "tsc --module CommonJS --outDir ./dist/module",
     "build:types": "tsc --module CommonJS --declaration --emitDeclarationOnly --declarationDir ./dist/types",
-    "analyze": "{...other analysis commands...} && yarn analyze:syntax",
-    "analyze:syntax": "tsc --noEmit"
+    "test": "{...other test commands...} && yarn test:syntax",
+    "test:syntax": "tsc --noEmit"
   }
 }
 ```

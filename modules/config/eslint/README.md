@@ -36,10 +36,10 @@ This folder is expected to be used with [ESLint](https://eslint.org/).
 An ESLint configuration file (`./eslint.config.js`) must be present within the focused module using the following configuration definition example:
 
 ```js
-// ./.eslintrc.js
+// ./eslint.config.js
 
-const { common, javascript, typescript } = require('@alboe/eslint-config');
-const definition = require('./package.json');
+import { common, javascript } from '@alboe/eslint-config';
+import definition from './package.json' with { type: 'json' };
 
 const config = [
   ...javascript({ definition }), // for javascript
@@ -47,7 +47,7 @@ const config = [
   common, // common ruleset
 ];
 
-module.exports = config;
+export default config;
 ```
 
 This configuration will provide rulesets and parsers for both JavaScript and Typescript languages with a common applied ruleset for all files.
@@ -61,8 +61,8 @@ Add the following scripts to the focused project's `./package.json` file to alig
   /* ...other package definition details... */
   "scirpts": {
     /* ...other package definition scripts... */
-    "analyze": "{...other analysis commands...} && yarn analyze:style",
-    "analyze:style": "eslint \"./{src,test}/**/*.{js,mjs,cjs,ts}\"",
+    "test": "{...other test commands...} && yarn test:style",
+    "test:style": "eslint \"./{src,test}/**/*.{js,mjs,cjs,ts}\"",
   }
 }
 ```

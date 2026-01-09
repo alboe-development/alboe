@@ -14,4 +14,7 @@ const generate = () => ([
   },
 ]);
 
-module.exports = generate;
+export {
+  generate as common,
+};
+

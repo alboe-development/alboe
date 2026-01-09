@@ -1,5 +1,5 @@
-const javascript = require('@eslint/js');
-const jsdoc = require('eslint-plugin-jsdoc');
+import javascript from '@eslint/js';
+import jsdoc from 'eslint-plugin-jsdoc';
 
 /**
  * @typedef Definition
@@ -74,4 +74,6 @@ const generate = (options = {}) => {
   ];
 };
 
-module.exports = generate;
+export {
+  generate as javascript,
+};

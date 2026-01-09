@@ -1,9 +1,3 @@
-const common = require('./common');
-const javascript = require('./javascript');
-const typescript = require('./typescript');
-
-module.exports = {
-  javascript,
-  typescript,
-  common,
-};
+export * from './common.js';
+export * from './javascript.js';
+export * from './typescript.js';
