@@ -1,4 +1,7 @@
 {
+  "chat.agent.enabled": false,
+  "chat.commandCenter.enabled": false,
+  "chat.disableAIFeatures": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
@@ -15,6 +18,7 @@
   "files.associations": {
     "*.json": "jsonc"
   },
+  "javascript.preferences.quoteStyle": "single",
   "search.exclude": {
     "**/.yarn": true,
   },
