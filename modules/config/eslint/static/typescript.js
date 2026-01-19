@@ -17,6 +17,11 @@ const generate = () => {
 
   const general = [
     ...typescript.configs.recommended,
+    ...typescript.config({
+      rules: {
+        '@typescript-eslint/consistent-type-imports': 'error',
+      },
+    }),
   ].map((config) => ({
     ...config,
     files: ['**/*.ts'],
