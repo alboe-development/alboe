@@ -17,7 +17,9 @@
     "enabled": true,
     "untrimmedFilePath": "<projectFolder>/dist/docs/api/metadata/index.d.ts"
   },
-  "tsdocMetadata": {},
+  "tsdocMetadata": {
+    "enabled": false
+  },
   "mainEntryPointFilePath": "<projectFolder>/dist/types/index.d.ts",
   "messages": {
     "compilerMessageReporting": {
