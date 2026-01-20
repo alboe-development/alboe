@@ -19,8 +19,5 @@
     "*.json": "jsonc"
   },
   "javascript.preferences.quoteStyle": "single",
-  "search.exclude": {
-    "**/.yarn": true,
-  },
   "typescript.preferences.quoteStyle": "single"
 }
