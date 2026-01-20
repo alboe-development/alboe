@@ -4,6 +4,7 @@ packages:
 catalog:
   '@microsoft/api-documenter': ^7
   '@microsoft/api-extractor': ^7
+  '@vitest/coverage-v8': ^4
   eslint: ^9
   typescript: <5.9.0
   vitest: ^4
