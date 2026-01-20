@@ -1,0 +1,22 @@
+{
+  "name": "@alboe/vitest-config",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alboe-development/alboe.git"
+  },
+  "license": "MIT",
+  "files": [
+    "./static/*"
+  ],
+  "type": "module",
+  "main": "./static/index.js",
+  "scripts": {
+    "test": "pnpm test:style",
+    "test:style": "eslint"
+  },
+  "devDependencies": {
+    "@alboe/eslint-config": "workspace:*",
+    "eslint": "catalog:"
+  }
+}
