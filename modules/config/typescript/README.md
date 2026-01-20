@@ -19,32 +19,40 @@ This module is meant to be consumed as a **local dependency**, and requires the 
 * `dev-dependencies`
   * `typescript`
 
-Installation of the **required dependencies** can be performed by using the following commands:
+Installation of the **dependencies** can be performed updating a module's manifest (`package.json`) to include the following entries:
+
+```jsonc
+/* ./package.json */
+{
+  /* ... */
+  "devDependencies": {
+    /* ... */
+    "@alboe/typescript-config": "workspace:*",
+    "typescript": "catalog:"
+    /* ... */
+  }
+}
+
+Afterwards, executing the following command is required in order to update all links within this project:
 
 ```bash
-# usage within a workspaces environment
-yarn workspace @{scope}/{package} add --dev typescript @alboe/typescript-config
-
-# usage outside of a workspaces environment
-yarn add --dev typescript @alboe/typescript-config
+pnpm install
 ```
 
 ## Usage
 
 This package is expected to be used with [TypeScript](https://www.typescriptlang.org/).
 
-
 A TypeScript configuration file must be consumed within the target package using the following configuration definition example:
 
 A TypeScript configuration file (`./tsconfig.json`) must be present within the focused project using the following configuration definition example:
 
 ```jsonc
-// ./tsconfig.json
-
+/* ./tsconfig.json */
 {
   "extends": "@alboe/typescript-config/static/index.json",
   "include": [
-    "./src/**/*.ts" // Set the files to include when building
+    "./src/**/*.ts" // Set the files to include when building.
   ]
 }
 ```
@@ -55,13 +63,13 @@ Add the following scripts to the focused project's `./package.json` file to alig
 
 ```jsonc
 {
-  /* ...other package definition details... */
+  /* ... */
   "scripts": {
-    /* ...other package definition scripts... */
-    "build": "{...other build commands...} && yarn build:module && yarn build:types",
+    /* ... */
+    "build": "{...} && pnpm build:module && pnpm build:types",
     "build:module": "tsc --module CommonJS --outDir ./dist/module",
     "build:types": "tsc --module CommonJS --declaration --emitDeclarationOnly --declarationDir ./dist/types",
-    "test": "{...other test commands...} && yarn test:syntax",
+    "test": "{...} && pnpm test:syntax",
     "test:syntax": "tsc --noEmit"
   }
 }
