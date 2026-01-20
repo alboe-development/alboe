@@ -19,14 +19,26 @@ This module is meant to be consumed as a **dev-dependency**, and requires the fo
   * `eslint`
   * `typescript` _optional: required when analyzing typescript files_
 
-Installation of the **dependencies** can be performed by using the following commands:
+Installation of the **dependencies** can be performed updating a module's manifest (`package.json`) to include the following entries:
+
+```jsonc
+/* ./package.json */
+{
+  /* ... */
+  "devDependencies": {
+    /* ... */
+    "@alboe/eslint-config": "workspace:*",
+    "eslint": "catalog:",
+    "typescript": "catalog:"
+    /* ... */
+  }
+}
+```
+
+Afterwards, executing the following command is required in order to update all links within this project:
 
 ```bash
-# usage within a workspaces environment
-yarn workspace @{scope}/{package} add --dev eslint typescript @alboe/eslint-config
-
-# usage outside of a workspaces environment
-yarn add --dev eslint typescript @alboe/eslint-config
+pnpm install
 ```
 
 ## Usage
@@ -36,15 +48,14 @@ This folder is expected to be used with [ESLint](https://eslint.org/).
 An ESLint configuration file (`./eslint.config.js`) must be present within the focused module using the following configuration definition example:
 
 ```js
-// ./eslint.config.js
-
+/* ./eslint.config.js */
 import { common, javascript } from '@alboe/eslint-config';
 import definition from './package.json' with { type: 'json' };
 
 const config = [
-  ...javascript({ definition }), // for javascript
-  ...typescript({ definition }), // for typescript
-  common, // common ruleset
+  ...javascript({ definition }), // For JavaScript.
+  ...typescript({ definition }), // For TypeScript.
+  ...common(), // Common Rules.
 ];
 
 export default config;
@@ -55,14 +66,14 @@ This configuration will provide rulesets and parsers for both JavaScript and Typ
 Add the following scripts to the focused project's `./package.json` file to align with the commands within the **ALBOE** organization:
 
 ```jsonc
-// ./package.json
-
+/* package.json */
 {
-  /* ...other package definition details... */
+  /* ... */
   "scirpts": {
-    /* ...other package definition scripts... */
-    "test": "{...other test commands...} && yarn test:style",
+    /* ... */
+    "test": "{...} && pnpm test:style",
     "test:style": "eslint \"./{src,test}/**/*.{js,mjs,cjs,ts}\"",
+    /* ... */
   }
 }
 ```
