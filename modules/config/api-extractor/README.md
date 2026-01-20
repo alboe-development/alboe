@@ -16,16 +16,28 @@ This module is meant to be consumed as a **dev-dependency**, and uses the follow
 
 * `dev-dependencies`
   * `@microsoft/api-extractor`
-  * `@microsoft/api-documenter` _recommended_
+  * `@microsoft/api-documenter`
 
-Installation of the **dependencies** can be performed by using the following commands:
+Installation of the **dependencies** can be performed updating a module's manifest (`package.json`) to include the following entries:
+
+```jsonc
+/* ./package.json */
+{
+  /* ... */
+  "devDependencies": {
+    /* ... */
+    "@alboe/api-extractor-config": "workspace:*",
+    "@microsoft/api-extractor": "catalog:",
+    "@microsoft/api-documenter": "catalog:"
+    /* ... */
+  }
+}
+```
+
+Afterwards, executing the following command is required in order to update all links within this project:
 
 ```bash
-# usage within a workspaces environment
-yarn workspace @{scope}/{package} add --dev @microsoft/api-extractor @microsoft/api-documenter @alboe/api-extractor-config
-
-# usage outside of a workspaces environment
-yarn add --dev @microsoft/api-extractor @microsoft/api-documenter @alboe/api-extractor-config
+pnpm install
 ```
 
 ## Usage
@@ -37,8 +49,7 @@ This module is recommended to be used with [API Documenter](https://www.npmjs.co
 An API Extractor configuration file (`./api-extractor.config.json`) must be present within the focused project using the following configuration definition example:
 
 ```jsonc
-// ./api-extractor.config.json
-
+/* ./api-extractor.config.json */
 {
   "extends": "@alboe/api-extractor-config",
   "projectFolder": "."
@@ -50,15 +61,14 @@ This configuration will target all `./dist/types/**/*.d.ts` files within the foc
 Add the following scripts to the focused project's `./package.json` file to align with the commands within the **ALBOE** organization:
 
 ```jsonc
-// ./package.json
-
+/* ./package.json */
 {
-  /* ...other package definition details... */
+  /* ... */
   "scripts": {
-    /* ...other package definition scripts... */
-    "build": "{...other build commands...} && yarn build:docs",
-    "build:docs": "{...other documentation building commands...} && yarn build:docs:api",
-    "build:docs:api": "yarn build:docs:api:metadata && yarn build:docs:api:markdown",
+    /* ... */
+    "build": "{...} && pnpm build:docs",
+    "build:docs": "{...} && pnpm build:docs:api",
+    "build:docs:api": "pnpm build:docs:api:metadata && pnpm build:docs:api:markdown",
     "build:docs:api:markdown": "api-documenter markdown --input-folder ./dist/docs/api/metadata --output-folder ./dist/docs/api/markdown",
     "build:docs:api:metadata": "api-extractor run --local --verbose"
   }
