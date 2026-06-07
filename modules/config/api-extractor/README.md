@@ -3,7 +3,7 @@
 [![license: mit](https://img.shields.io/badge/License-MIT-blueviolet?style=flat-square)](https://github.com/alboe-development/alboe/blob/main/LICENSE)
 ![state: alpha](https://img.shields.io/badge/State\-Beta-blue?style=flat-square)
 
-The contents of this module are used as a shared collection of scripts and files when applying a standard [API Extractor](https://api-extractor.com/) configuration to modules within this project.
+The contents of this module are used as a shared collection of scripts and files for applying a standard [API Extractor](https://api-extractor.com/) configuration to modules within this project
 
 * [Installation](#installation)
 * [Usage](#usage)
@@ -12,13 +12,7 @@ The contents of this module are used as a shared collection of scripts and files
 
 ## Installation
 
-This module is meant to be consumed as a **dev-dependency**, and uses the following **dependencies**:
-
-* `dev-dependencies`
-  * `@microsoft/api-extractor`
-  * `@microsoft/api-documenter`
-
-Installation of the **dependencies** can be performed updating a module's manifest (`package.json`) to include the following entries:
+Installation of this module and its required dependencies can be performed within this project by updating the module's manifest to include thie following dependencies:
 
 ```jsonc
 /* ./package.json */
@@ -27,53 +21,43 @@ Installation of the **dependencies** can be performed updating a module's manife
   "devDependencies": {
     /* ... */
     "@alboe/api-extractor-config": "workspace:*",
+    "@microsoft/api-documenter": "catalog:",
     "@microsoft/api-extractor": "catalog:",
-    "@microsoft/api-documenter": "catalog:"
-    /* ... */
+    "typescript": "catalog:"
   }
 }
 ```
 
-Afterwards, executing the following command is required in order to update all links within this project:
-
-```bash
-pnpm install
-```
-
 ## Usage
 
-This module is expected to be used with [API Extractor](https://api-extractor.com/).
+This package is expected to be used with [API Extractor](https://api-extractor.com/), [API Documenter](https://api-extractor.com/pages/setup/generating_docs/), and [TypeScript](https://www.typescriptlang.org/).
 
-This module is recommended to be used with [API Documenter](https://www.npmjs.com/package/@microsoft/api-documenter).
-
-An API Extractor configuration file (`./api-extractor.config.json`) must be present within the focused project using the following configuration definition example:
+Create an `api-extractor.json` file within the scope of a module and extend teh shared configuration:
 
 ```jsonc
-/* ./api-extractor.config.json */
+/* ./api-extractor.json */
+
 {
   "extends": "@alboe/api-extractor-config",
   "projectFolder": "."
 }
 ```
 
-This configuration will target all `./dist/types/**/*.d.ts` files within the focused project and generate output files within the `./dist/docs/api/metadata/**` folder.
-
-Add the following scripts to the focused project's `./package.json` file to align with the commands within the **ALBOE** organization:
+The shared configuration expects the module declaration entry point to exist at `./dist/module/index.d.ts`. Add the following scripts to the module's manifest file, placing any calls to `api-extractor` to after the `index.d.ts` has been built, and any calls to after `api-documenter` to after the metadata has been built.
 
 ```jsonc
 /* ./package.json */
 {
   /* ... */
-  "scripts": {
-    /* ... */
-    "build": "{...} && pnpm build:docs",
-    "build:docs": "{...} && pnpm build:docs:api",
-    "build:docs:api": "pnpm build:docs:api:metadata && pnpm build:docs:api:markdown",
-    "build:docs:api:markdown": "api-documenter markdown --input-folder ./dist/docs/api/metadata --output-folder ./dist/docs/api/markdown",
-    "build:docs:api:metadata": "api-extractor run --local --verbose"
-  }
+  "build": "{...} && pnpm build:docs",
+  "build:docs": "{...} && pnpm build:docs:api",
+  "build:docs:api": "{...} && pnpm build:docs:api:metadata && pnpm build:docs:api:markdown",
+  "build:docs:api:markdown": "api-documenter --input-folder ./dist/docs/api/metadata --output-folder ./dist/docs/api-markdown",
+  "build:docs:api:metadata": "api-extractor run --local --verbose"
 }
 ```
+
+After these commands are executed, the generated API markdown and metadata files will be written within the `./dist/docs/api/markdown` and `./dist/docs/api/metadata` folders respectfully.
 
 ## Contribute
 

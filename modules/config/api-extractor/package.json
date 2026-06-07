@@ -1,14 +1,20 @@
 {
   "name": "@alboe/api-extractor-config",
+  "description": "API Extractor configuration for the Alboe project.",
   "private": true,
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/alboe-development/alboe.git"
   },
-  "license": "MIT",
   "files": [
     "./static/*"
   ],
   "type": "module",
-  "main": "./static/index.json"
+  "main": "./static/index.json",
+  "peerDependencies": {
+    "@microsoft/api-documenter": "catalog:",
+    "@microsoft/api-extractor": "catalog:",
+    "typescript": "catalog:"
+  }
 }
