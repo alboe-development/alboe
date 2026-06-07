@@ -1,2 +1,0 @@
-echo "precommit hooks running"
-pnpm exec commitlint --extends @commitlint/config-conventional --edit "$1"
