@@ -14,8 +14,6 @@
     "modules/**/*"
   ],
   "scripts": {
-    "prepare": "pnpm prepare:husky",
-    "prepare:husky": "pnpm exec husky",
     "@workspaces": "pnpm run -r",
     "@app": "pnpm @workspaces --filter @alboe/*-app",
     "@config": "pnpm @workspaces --filter @alboe/*-config",
@@ -25,9 +23,6 @@
   },
   "devDependencies": {
     "@alboe/eslint-config": "workspace:*",
-    "@commitlint/cli": "^19",
-    "@commitlint/config-conventional": "^19",
-    "eslint": "catalog:",
-    "husky": "^9"
+    "eslint": "catalog:"
   }
 }

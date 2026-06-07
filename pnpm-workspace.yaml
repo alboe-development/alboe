@@ -1,10 +1,13 @@
 packages:
   - modules/**
 
+allowBuilds:
+  esbuild: true
+
 catalog:
-  '@microsoft/api-documenter': ^7
-  '@microsoft/api-extractor': ^7
-  '@vitest/coverage-v8': ^4
-  eslint: ^9
-  typescript: <5.9.0
+  "@microsoft/api-documenter": ^7
+  "@microsoft/api-extractor": ^7
+  "@vitest/coverage-v8": ^4
+  eslint: ^10
+  typescript: ^5.9
   vitest: ^4

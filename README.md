@@ -1,31 +1,19 @@
 # Alboe
 
-**ALBOE Development**'s [Mono-Repository](https://en.wikipedia.org/wiki/Monorepo) project.
+**Alboe Development**'s [Mono-Repository](https://en.wikipedia.org/wiki/Monorepo) project.
 
 [![license: mit](https://img.shields.io/badge/License-MIT-blueviolet?style=flat-square)](https://github.com/alboe-development/alboe/blob/main/LICENSE)
 ![state: beta](https://img.shields.io/badge/State\-Beta-blue?style=flat-square)
 
-This project is designed as a platform to manage all projects developed within the [Alboe Development](https://github.com/alboe-development) organization by providing a core foundation using [PNPM](https://pnpm.io/).
+This project is designed as a platform to manage all projects developed within the [Alboe Development](https://github.com/alboe-development) organization.
 
-* [Requirements](#requirements)
-* [Packages](#packages)
-* [Contribute](#contribute)
-* [Maintainers](#maintainers)
+* [Consumption](#consumption)
+* [Contributing](#contributing)
 
-## Requirements
+## Consumption
 
-This project has the following platform requirements:
+_Coming Soon!_
 
-* **Node** *v22*
-* **NPM** *v10*
-* **PNPM** *v10*
-
-This project uses a collection of dependencies that can be inferred from all contained [package definition files](https://docs.npmjs.com/cli/v10/configuring-npm/package-json) within this project.
-
-## Contribute
+## Contributing
 
 Please see [CONTRIBUTING.md](https://github.com/alboe-development/alboe/blob/main/CONTRIBUTING.md) for more details.
-
-## Maintainers
-
-This package is maintained by **Alboe Development Team**.
