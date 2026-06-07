@@ -1,6 +1,4 @@
-import typescript from 'typescript-eslint';
-import jsdoc from 'eslint-plugin-jsdoc';
-import tsdoc from 'eslint-plugin-tsdoc';
+import typescript from "typescript-eslint";
 
 /**
  * Generate ESLint TypeScript configuration for a module within this project.
@@ -8,71 +6,27 @@ import tsdoc from 'eslint-plugin-tsdoc';
  * @returns {Array} - The generated configuration.
  */
 const generate = () => {
-  const languageOptions = {
-    parser: typescript.parser,
-    parserOptions: {
-      tsconfigRootDir: import.meta.dirname,
-    },
-  };
-
   const general = [
     ...typescript.configs.recommended,
     ...typescript.config({
       rules: {
-        '@typescript-eslint/consistent-type-imports': 'error',
+        "@typescript-eslint/consistent-type-imports": "error",
       },
     }),
   ].map((config) => ({
     ...config,
-    files: ['**/*.ts'],
-  }));
-
-  const source = [
-    jsdoc.configs['flat/typescript-recommended'],
-    {
-      plugins: {
-        jsdoc,
-        tsdoc,
-      },
-      rules: {
-        'jsdoc/check-tag-names': 'off',
-        'tsdoc/syntax': 'error',
-        'jsdoc/require-jsdoc': [
-          'warn',
-          {
-            enableFixer: false,
-            publicOnly: { ancestorsOnly: false },
-            require: {
-              FunctionDeclaration: true,
-              FunctionExpression: true,
-              ArrowFunctionExpression: true,
-              ClassDeclaration: true,
-              ClassExpression: true,
-            },
-            contexts: [
-              'VariableDeclaration',
-              'TSTypeAliasDeclaration',
-              'TSPropertySignature',
-              'TSInterfaceDeclaration',
-              'TSMethodSignature',
-              'TSEnumDeclaration'
-            ],
-          },
-        ],
+    files: ["**/*.ts"],
+    languageOptions: {
+      parser: typescript.parser,
+      parserOptions: {
+        tsconfigRootDir: import.meta.dirname,
       },
     },
-  ].map((config) => ({
-    ...config,
-    files: ['src/**/*.ts'],
-    languageOptions,
   }));
 
   return [
     ...general,
-    ...source,
   ];
 };
 
-export {
-  generate as typescript,
-};
+export { generate as typescript };

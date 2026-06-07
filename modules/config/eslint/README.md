@@ -1,8 +1,7 @@
 # Configuration - ESLint
 
 [![license: mit](https://img.shields.io/badge/License-MIT-blueviolet?style=flat-square)](https://github.com/alboe-development/alboe/blob/main/LICENSE)
-![state: beta](https://img.shields.io/badge/State\-Beta-blue?style=flat-square)
-![scope: internal](https://img.shields.io/badge/Scope-Internal-red?style=flat-square)
+![availabilty: internal](https://img.shields.io/badge/Availability-Internal-blue?style=flat-square)
 
 The contents of this module are used as a shared collection of scripts and files when applying a standard [ESLint](https://eslint.org/) ruleset to modules within this project.
 
@@ -13,13 +12,7 @@ The contents of this module are used as a shared collection of scripts and files
 
 ## Installation
 
-This module is meant to be consumed as a **dev-dependency**, and requires the following **dependencies**:
-
-* `dev-dependencies`
-  * `eslint`
-  * `typescript` _optional: required when analyzing typescript files_
-
-Installation of the **dependencies** can be performed updating a module's manifest (`package.json`) to include the following entries:
+Installation of this module and its required dependencies can be performed within this project by updating the module's manifest to include thie following dependencies:
 
 ```jsonc
 /* ./package.json */
@@ -28,42 +21,39 @@ Installation of the **dependencies** can be performed updating a module's manife
   "devDependencies": {
     /* ... */
     "@alboe/eslint-config": "workspace:*",
-    "eslint": "catalog:",
-    "typescript": "catalog:"
-    /* ... */
+    "typescript": "catalog:" /* optional */
   }
 }
 ```
 
-Afterwards, executing the following command is required in order to update all links within this project:
-
-```bash
-pnpm install
-```
-
 ## Usage
 
-This folder is expected to be used with [ESLint](https://eslint.org/).
+This module is expected to be used with [ESLint](https://eslint.org/) and optionally [TypeScript](https://www.typescriptlang.org/).
 
-An ESLint configuration file (`./eslint.config.js`) must be present within the focused module using the following configuration definition example:
+Create an ESLint configuration file at `./eslint.config.js` within the scope of a module and utilize the following template to produce the configuration:
 
 ```js
 /* ./eslint.config.js */
-import { common, javascript } from '@alboe/eslint-config';
-import definition from './package.json' with { type: 'json' };
+import {
+  common,
+  javascript,
+  json,
+  markdown,
+  typescript, /* optional */
+} from "@alboe/eslint-config";
 
 const config = [
-  ...javascript({ definition }), // For JavaScript.
-  ...typescript({ definition }), // For TypeScript.
-  ...common(), // Common Rules.
+  ...common(),
+  ...javascript(),
+  ...json(),
+  ...markdown(),
+  ...typescript(), /* optional */
 ];
 
 export default config;
 ```
 
-This configuration will provide rulesets and parsers for both JavaScript and Typescript languages with a common applied ruleset for all files.
-
-Add the following scripts to the focused project's `./package.json` file to align with the commands within the **ALBOE** organization:
+The shared configuration will validate all files that meet each provided rulset's scope. Add the following scripts to the module's manifest file:
 
 ```jsonc
 /* package.json */
@@ -72,7 +62,7 @@ Add the following scripts to the focused project's `./package.json` file to alig
   "scirpts": {
     /* ... */
     "test": "{...} && pnpm test:style",
-    "test:style": "eslint \"./{src,test}/**/*.{js,mjs,cjs,ts}\"",
+    "test:style": "eslint",
     /* ... */
   }
 }

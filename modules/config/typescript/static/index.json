@@ -1,41 +1,20 @@
 {
   "compilerOptions": {
-    "alwaysStrict": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "skipLibCheck": true,
+    "incremental": false,
+    "rewriteRelativeImportExtensions": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext"],
     "strict": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "useUnknownInCatchVariables": true,
-
-    "moduleResolution": "node",
-
-    "sourceMap": true,
-    "inlineSources": true,
-    "newLine": "lf",
-
-    "allowJs": false,
-
-    "allowSyntheticDefaultImports": false,
     "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
     "isolatedModules": true,
-
-    "useDefineForClassFields": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": [
-      "ESNext",
-      "DOM",
-      "webWorker"
-    ],
-    "module": "ES6",
-    "target": "ESNext"
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "rootDir": "${configDir}/src",
+    "outDir": "${configDir}/dist/module",
+    "moduleResolution": "bundler"
   }
 }

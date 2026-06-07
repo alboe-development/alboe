@@ -12,7 +12,15 @@
   ],
   "type": "module",
   "main": "./static/index.json",
+  "scripts": {
+    "test": "pnpm test:style",
+    "test:style": "eslint"
+  },
+  "devDependencies": {
+    "eslint": "catalog:"
+  },
   "peerDependencies": {
+    "@alboe/eslint-config": "workspace:*",
     "@microsoft/api-documenter": "catalog:",
     "@microsoft/api-extractor": "catalog:",
     "typescript": "catalog:"

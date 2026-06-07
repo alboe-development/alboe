@@ -1,14 +1,25 @@
 {
   "name": "@alboe/typescript-config",
+  "description": "Typescript configuration for the Alboe project.",
   "private": true,
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/alboe-development/alboe.git"
   },
-  "license": "MIT",
   "files": [
     "./static/*"
   ],
   "type": "module",
-  "main": "./static/index.json"
+  "main": "./static/index.json",
+  "scripts": {
+    "test": "pnpm test:style",
+    "test:style": "eslint"
+  },
+  "devDependencies": {
+    "eslint": "catalog:"
+  },
+  "peerDependencies": {
+    "typescript": "catalog:"
+  }
 }
