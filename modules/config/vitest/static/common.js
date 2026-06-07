@@ -1,9 +1,9 @@
-import Path from 'node:path';
-import Process from 'node:process';
+import Path from "node:path";
+import Process from "node:process";
 
 /**
  * Common Vitest configuration generator for the Alboe project.
- * 
+ *
  * @param {object} options - Options used to generate the configuration.
  * @param {boolean} [options.coverage] - Whether or not coverage reporting is on.
  * @param {string} [options.entry] - The entry directory for the module's source code.
@@ -13,13 +13,13 @@ import Process from 'node:process';
  */
 const generate = (options = {}) => {
   const {
-    coverage = Process.argv.includes('--coverage'),
-    entry = Process.env.ENTRY ?? 'src',
+    coverage = Process.argv.includes("--coverage"),
+    entry = Process.env.ENTRY ?? "src",
     location = Process.cwd(),
     manifest = {},
   } = options;
 
-  const { name = 'unknown' } = manifest;
+  const { name = "unknown" } = manifest;
 
   return {
     test: {
@@ -27,9 +27,9 @@ const generate = (options = {}) => {
         [name]: Path.join(location, entry),
       },
       coverage: {
-        exclude: ['**/*.d.*', '**/*.test.*'],
-        include: [Path.join(entry, '**/*.*')],
-        reportsDirectory: Path.join(location, 'dist/docs/coverage/module'),
+        exclude: ["**/*.d.*", "**/*.test.*"],
+        include: [Path.join(entry, "**/*.*")],
+        reportsDirectory: Path.join(location, "dist/docs/coverage/module"),
         thresholds: {
           branches: 100,
           functions: 100,
@@ -38,7 +38,7 @@ const generate = (options = {}) => {
         },
       },
       mockReset: true,
-      reporters: [coverage ? 'dot' : 'default'],
+      reporters: [coverage ? "dot" : "default"],
     },
   };
 };

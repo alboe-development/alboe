@@ -1,1 +1,1 @@
-export { Component } from './component.fixture';
+export { Component } from "./component.fixture";

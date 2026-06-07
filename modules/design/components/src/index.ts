@@ -1,6 +1,6 @@
 /**
  * An dashboard application by Alboe Development.
- * 
+ *
  * @packageDocumentation
  */
 export {
@@ -8,10 +8,10 @@ export {
   Provider,
   COMPONENT_CONSTANTS,
   type ComponentRegisterOptions,
-} from './models';
+} from "./models";
 
 export {
   css,
   html,
   type CSSResult,
-} from './entrepot';
+} from "./entrepot";

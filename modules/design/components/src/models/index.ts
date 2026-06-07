@@ -2,8 +2,8 @@ export {
   Component,
   COMPONENT_CONSTANTS,
   type ComponentRegisterOptions,
-} from './component';
+} from "./component";
 
 export {
   Provider,
-} from './provider';
+} from "./provider";
