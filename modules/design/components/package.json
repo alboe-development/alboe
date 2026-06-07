@@ -29,7 +29,7 @@
     "test:module:coverage": "ENTRY=\"./src\" vitest run ./test/module --coverage",
     "test:module:dist": "ENTRY=\"./dist/module\" vitest run ./test/module",
     "test:module:src": "ENTRY=\"./src\" vitest ./test/module --coverage",
-    "test:style": "eslint \"./{src,test}/**/*.{js,ts}\"",
+    "test:style": "eslint",
     "test:syntax": "tsc --noEmit"
   },
   "dependencies": {

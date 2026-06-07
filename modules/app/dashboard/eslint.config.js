@@ -1,10 +1,11 @@
-import { common, javascript, typescript } from '@alboe/eslint-config';
-import definition from './package.json' with { type: 'json' };
+import { common, javascript, json, markdown, typescript } from "@alboe/eslint-config";
 
 const config = [
-  ...javascript({ definition }),
-  ...typescript({ definition }),
   ...common(),
+  ...javascript(),
+  ...json(),
+  ...markdown(),
+  ...typescript(),
 ];
 
 export default config;
