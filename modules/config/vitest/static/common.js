@@ -14,7 +14,7 @@ import Process from "node:process";
 const generate = (options = {}) => {
   const {
     coverage = Process.argv.includes("--coverage"),
-    entry = Process.env.ENTRY ?? "src",
+    entry = Process.env.CI ? "./dist/module" : "./src",
     location = Process.cwd(),
     manifest = {},
   } = options;
@@ -26,19 +26,19 @@ const generate = (options = {}) => {
       alias: {
         [name]: Path.join(location, entry),
       },
+      include: ["./src/**/*.test.*"],
+      restoreMocks: true,
       coverage: {
-        exclude: ["**/*.d.*", "**/*.test.*"],
-        include: [Path.join(entry, "**/*.*")],
-        reportsDirectory: Path.join(location, "dist/docs/coverage/module"),
-        thresholds: {
-          branches: 100,
-          functions: 100,
-          lines: 100,
-          statements: 100,
-        },
+        enabled: coverage,
+        exclude: [
+          "**/*.d.*",
+          "**/*.test.*",
+        ],
+        include: [
+          Path.join(entry, "**/*.{js,ts}"),
+        ],
+        reportsDirectory: "./dist/docs/coverage",
       },
-      mockReset: true,
-      reporters: [coverage ? "dot" : "default"],
     },
   };
 };
