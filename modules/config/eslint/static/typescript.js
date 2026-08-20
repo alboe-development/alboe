@@ -11,6 +11,16 @@ const generate = () => {
     ...typescript.config({
       rules: {
         "@typescript-eslint/consistent-type-imports": "error",
+        "@stylistic/member-delimiter-style": ["error", {
+          singleline: {
+            delimiter: "semi",
+            requireLast: true,
+          },
+          multiline: {
+            delimiter: "semi",
+            requireLast: true,
+          },
+        }],
       },
     }),
   ].map((config) => ({

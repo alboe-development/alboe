@@ -24,6 +24,12 @@ const generate = () => ([
       "@stylistic/max-len": ["error", { code: 120, comments: 120, ignoreUrls: true }],
       "@stylistic/quotes": ["error", "double"],
       "@stylistic/semi": ["error", "always"],
+      "no-restricted-imports": ["error", {
+        patterns: [{
+          message: "Relative imports and re-exports must include a file extension.",
+          regex: String.raw`^\.\.?/(?!.*\.(?:[cm]?[jt]sx?|json|css)(?:[?#].*)?$).+`,
+        }],
+      }],
     },
   },
 ]);

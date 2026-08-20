@@ -20,7 +20,7 @@
   "tsdocMetadata": {
     "enabled": false
   },
-  "mainEntryPointFilePath": "<projectFolder>/dist/types/index.d.ts",
+  "mainEntryPointFilePath": "<projectFolder>/dist/module/index.d.ts",
   "messages": {
     "compilerMessageReporting": {
       "default": {

@@ -1,0 +1,9 @@
+{
+  "extends": "@alboe/typescript-config/static/index.json",
+  "compilerOptions": {
+    "lib": ["DOM", "ESNext"]
+  },
+  "include": [
+    "./src/**/*.ts"
+  ]
+}

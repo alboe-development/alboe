@@ -1,0 +1,40 @@
+{
+  "name": "@alboe/log-tools",
+  "description": "Logging tools for the Alboe project.",
+  "private": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alboe-development/alboe.git"
+  },
+  "files": [
+    "./dist/*"
+  ],
+  "type": "module",
+  "main": "./dist/module/index.js",
+  "scripts": {
+    "build": "pnpm build:module && pnpm build:docs",
+    "build:docs": "pnpm build:docs:api",
+    "build:docs:api": "pnpm build:docs:api:metadata && pnpm build:docs:api:markdown",
+    "build:docs:api:markdown": "api-documenter markdown --input-folder ./dist/docs/api/metadata --output-folder ./dist/docs/api/markdown",
+    "build:docs:api:metadata": "api-extractor run --local --verbose",
+    "build:module": "tsc",
+    "test": "pnpm test:style && pnpm test:syntax && pnpm test:module && pnpm test:coverage",
+    "test:module": "vitest",
+    "test:coverage": "vitest --coverage",
+    "test:style": "eslint",
+    "test:syntax": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@alboe/api-extractor-config": "workspace:*",
+    "@alboe/eslint-config": "workspace:*",
+    "@alboe/typescript-config": "workspace:*",
+    "@alboe/vitest-config": "workspace:*",
+    "@microsoft/api-documenter": "catalog:",
+    "@microsoft/api-extractor": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "eslint": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}
