@@ -21,4 +21,5 @@ runs:
         node-version-file: '.nvmrc'
 
     - name: Install Dependencies
+      shell: bash
       run: pnpm install --frozen-lockfile

@@ -54,12 +54,12 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Initialize Node
-        with: ./.github/actions/initialize-node
+        uses: ./.github/actions/initialize-node
 
 
   build:
     name: Build
-    needs: [validate, initialize, build]
+    needs: [validate, initialize]
     runs-on: ubuntu-slim
     steps:
       - name: Checkout

@@ -23,6 +23,7 @@ runs:
 
     - name: Cache Distributables
       if: steps.uncache-distributables.outputs.cache-hit != 'true'
+      uses: actions/cache@v6
       with:
         path: "modules/*/*/dist"
         key: distributables-${{ runner.os }}-${{ inputs.CACHE_ID }}
