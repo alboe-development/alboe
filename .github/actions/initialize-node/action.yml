@@ -1,0 +1,24 @@
+name: Initialize Node
+description: Prepare Node and its Dependencies
+
+inputs:
+  CACHE_ID:
+    description: Unique identifier for the distributables cache entry.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Install PNPM
+      uses: pnpm/action-setup@v6
+      with:
+        version: 11
+
+    - name: Install Node
+      uses: actions/setup-node@v6
+      with:
+        cache: 'pnpm'
+        node-version-file: '.nvmrc'
+
+    - name: Install Dependencies
+      run: pnpm install --frozen-lockfile
