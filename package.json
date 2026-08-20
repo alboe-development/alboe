@@ -14,12 +14,13 @@
     "modules/**/*"
   ],
   "scripts": {
-    "@workspaces": "pnpm run -r",
-    "@app": "pnpm @workspaces --filter @alboe/*-app",
-    "@config": "pnpm @workspaces --filter @alboe/*-config",
-    "clean": "pnpm clean:dependencies && pnpm clean:distribution",
-    "clean:dependencies": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
-    "clean:distribution": "find . -name 'dist' -type d -prune -exec rm -rf '{}' +"
+    "@all": "pnpm --recursive --if-present",
+    "@app": "pnpm --filter \"*app*\" --if-present",
+    "@config": "pnpm --filter \"*config*\" --if-present",
+    "@design": "pnpm --filter \"*design*\" --if-present",
+    "@game": "pnpm --filter \"*game*\" --if-present",
+    "@tools": "pnpm --filter \"*config*\" --if-present",
+    "@project:dependencies:update": "pnpm update --lockfile-only --no-save --recursive"
   },
   "devDependencies": {
     "@alboe/eslint-config": "workspace:*",

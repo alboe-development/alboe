@@ -1,9 +1,2 @@
-export {
-  Component,
-  COMPONENT_CONSTANTS,
-  type ComponentRegisterOptions,
-} from "./component";
-
-export {
-  Provider,
-} from "./provider";
+export * from "./component/index.ts";
+export * from "./provider/index.ts";

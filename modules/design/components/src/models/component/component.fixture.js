@@ -1,7 +1,7 @@
 import { Component } from "@alboe/design-components";
 
 class ComponentFixture extends Component {
-  static get namespace() {
+  get namespace() {
     return "component";
   }
 }
