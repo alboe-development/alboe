@@ -54,8 +54,8 @@ body:
       label: "Reproduction Steps"
       description: "Please provide any steps necessary to reproduce this bug."
       placeholder: |
-        1. 
-        2. 
+        1.
+        2.
         3.
         (...4. )
     validations:
