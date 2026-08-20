@@ -27,32 +27,3 @@ body:
       label: "Context"
       description: "Additional contextual details that could help define the motives for this Story. (Optional)"
       placeholder: "{...contextual details related to this issue}"
-
-  - type: textarea
-    id: acceptance-criteria
-    attributes:
-      label: "Requirements"
-      description: "Requirements needed to fulfil this Story. (Optional)"
-      placeholder: |
-        - {requirement}
-        - {requirement}
-        - {requirement}
-        - {...}
-
-  - type: textarea
-    id: notes
-    attributes:
-      label: "Notes"
-      description: "Additional notes associated with this Story. (Optional)"
-      placeholder: "{...additional notes relating to this issue}"
-
-  - type: textarea
-    id: links
-    attributes:
-      label: "Links"
-      description: "Links related to this Story. (Optional)"
-      placeholder: |
-        - {link}
-        - {link}
-        - {link}
-        - {...}
