@@ -33,11 +33,18 @@ const generate = (options = {}) => {
         exclude: [
           "**/*.d.*",
           "**/*.test.*",
+          "**/*.fixture.*",
         ],
         include: [
           Path.join(entry, "**/*.{js,ts}"),
         ],
         reportsDirectory: "./dist/docs/coverage",
+        thresholds: {
+          branches: 100,
+          functions: 100,
+          lines: 100,
+          statements: 100,
+        },
       },
     },
   };
