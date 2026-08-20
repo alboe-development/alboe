@@ -5,9 +5,10 @@
  */
 export {
   Component,
-  Provider,
   COMPONENT_CONSTANTS,
   type ComponentRegisterOptions,
+  Provider,
+  ProviderStyles,
 } from "./models/index.ts";
 
 export {
