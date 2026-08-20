@@ -1,21 +1,17 @@
 {
   "name": "@alboe/design-components",
+  "description": "Design components for the Alboe project.",
   "private": true,
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/alboe-development/alboe.git"
   },
-  "license": "MIT",
   "files": [
     "./dist/*"
   ],
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/types/index.d.ts",
-      "default": "./dist/module/index.js"
-    }
-  },
+  "main": "./dist/module/index.js",
   "scripts": {
     "build": "pnpm build:module && pnpm build:types && pnpm build:docs",
     "build:docs": "pnpm build:docs:api",
@@ -24,11 +20,9 @@
     "build:docs:api:metadata": "api-extractor run --local --verbose",
     "build:module": "tsc --outDir ./dist/module",
     "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types",
-    "test": "pnpm test:style && pnpm test:syntax && pnpm test:module",
-    "test:module": "pnpm test:module:dist && pnpm test:module:coverage",
-    "test:module:coverage": "ENTRY=\"./src\" vitest run ./test/module --coverage",
-    "test:module:dist": "ENTRY=\"./dist/module\" vitest run ./test/module",
-    "test:module:src": "ENTRY=\"./src\" vitest ./test/module --coverage",
+    "test": "pnpm test:style && pnpm test:syntax && pnpm test:module && pnpm test:coverage",
+    "test:module": "vitest",
+    "test:coverage": "vitest --coverage",
     "test:style": "eslint",
     "test:syntax": "tsc --noEmit"
   },

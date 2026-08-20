@@ -1,14 +1,17 @@
 name: Pull Request Action
 run-name: Pull Request Action - ${{ github.actor }}
 
+
 on:
   pull_request_target:
     branches:
       - main
     types: [opened, reopened, synchronize, labeled]
 
+
 env:
-  id: ${{ github.run_id }}-${{ github.run_number }}
+  RID: ${{ github.run_id }}-${{ github.run_number }}
+
 
 jobs:
   validate:
@@ -38,9 +41,10 @@ jobs:
             exit 1
           fi
 
+
   initialize:
     name: Initialize
-    needs: validate
+    needs: [validate]
     runs-on: ubuntu-slim
     steps:
       - name: Checkout
@@ -49,23 +53,13 @@ jobs:
           allow-unsafe-pr-checkout: true
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Install PNPM
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
+      - name: Initialize Node
+        with: ./.github/actions/initialize-node
 
-      - name: Install Node
-        uses: actions/setup-node@v6
-        with:
-          cache: 'pnpm'
-          node-version-file: '.nvmrc'
-
-      - name: Install Dependencies
-        run: pnpm install
 
   build:
     name: Build
-    needs: initialize
+    needs: [validate, initialize, build]
     runs-on: ubuntu-slim
     steps:
       - name: Checkout
@@ -74,32 +68,18 @@ jobs:
           allow-unsafe-pr-checkout: true
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Install PNPM
-        uses: pnpm/action-setup@v4
+      - name: Initialize Node
+        uses: ./.github/actions/initialize-node
+
+      - name: Build Project
+        uses: ./.github/actions/build-project
         with:
-          version: 10
+          CACHE_ID: ${{ env.RID }}
 
-      - name: Install Node
-        uses: actions/setup-node@v6
-        with:
-          cache: 'pnpm'
-          node-version-file: '.nvmrc'
 
-      - name: Sync Dependencies
-        run: pnpm install
-
-      - name: Build Workspaces
-        run: pnpm @workspaces build
-
-      - name: Cache Distributions
-        uses: actions/cache@v5
-        with:
-          path: '**/dist'
-          key: dist-${{ env.id }}
-
-  test:
-    name: Test
-    needs: build
+  test-style:
+    name: Test - Style
+    needs: [validate, initialize, build]
     runs-on: ubuntu-slim
     steps:
       - name: Checkout
@@ -108,25 +88,80 @@ jobs:
           allow-unsafe-pr-checkout: true
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Install PNPM
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
+      - name: Initialize Node
+        uses: ./.github/actions/initialize-node
 
-      - name: Install Node
-        uses: actions/setup-node@v6
+      - name: Build Project
+        uses: ./.github/actions/build-project
         with:
-          cache: 'pnpm'
-          node-version-file: '.nvmrc'
-
-      - name: Sync Dependencies
-        run: pnpm install
-
-      - name: Uncache Distributions
-        uses: actions/cache@v5
-        with:
-          path: '**/dist'
-          key: dist-${{ env.id }}
+          CACHE_ID: ${{ env.RID }}
 
       - name: Test
-        run: pnpm @workspaces test
+        run: pnpm @all test:style
+
+
+  test-syntax:
+    name: Test - Syntax
+    needs: [validate, initialize, build]
+    runs-on: ubuntu-slim
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          allow-unsafe-pr-checkout: true
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Initialize Node
+        uses: ./.github/actions/initialize-node
+
+      - name: Build Project
+        uses: ./.github/actions/build-project
+        with:
+          CACHE_ID: ${{ env.RID }}
+
+      - name: Test
+        run: pnpm @all test:syntax
+
+  test-module:
+    name: Test - Module
+    needs: [validate, initialize, build]
+    runs-on: ubuntu-slim
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          allow-unsafe-pr-checkout: true
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Initialize Node
+        uses: ./.github/actions/initialize-node
+
+      - name: Build Project
+        uses: ./.github/actions/build-project
+        with:
+          CACHE_ID: ${{ env.RID }}
+
+      - name: Test
+        run: pnpm @all test:module
+
+  test-coverage:
+    name: Test - Coverage
+    needs: [validate, initialize, build]
+    runs-on: ubuntu-slim
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          allow-unsafe-pr-checkout: true
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Initialize Node
+        uses: ./.github/actions/initialize-node
+
+      - name: Build Project
+        uses: ./.github/actions/build-project
+        with:
+          CACHE_ID: ${{ env.RID }}
+
+      - name: Test
+        run: pnpm @all test:coverage

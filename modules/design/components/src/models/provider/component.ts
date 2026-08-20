@@ -1,11 +1,6 @@
-import { css, type CSSResult } from "../entrepot";
-import { Component } from "./component";
-
-const styles = css`
-:host {
-  display: contents;
-}
-`;
+import { type CSSResult } from "../../vendor/index.ts";
+import { Component } from "../component/index.ts";
+import { ProviderStyles } from "./styles.ts";
 
 /**
  * The core Provider definition.
@@ -24,7 +19,7 @@ const styles = css`
  * @public
  */
 abstract class Provider extends Component {
-  public static override styles: CSSResult[] = [...super.styles, styles];
+  public static override styles: CSSResult[] = [...super.styles, ProviderStyles];
 }
 
 export {

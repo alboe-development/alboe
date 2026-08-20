@@ -2,8 +2,7 @@
   "compilerOptions": {
     "lib": [
       "ESNext",
-      "DOM",
-      "webWorker"
+      "DOM"
     ]
   },
   "extends": "@alboe/typescript-config/static/index.json",

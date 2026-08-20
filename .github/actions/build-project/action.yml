@@ -1,0 +1,28 @@
+name: Build Project
+description: Build This Project
+
+inputs:
+  CACHE_ID:
+    description: Unique identifier for the distributables cache entry.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Uncache Distributables
+      id: uncache-distributables
+      uses: actions/cache@v6
+      with:
+        path: "modules/*/*/dist"
+        key: distributables-${{ runner.os }}-${{ inputs.CACHE_ID }}
+
+    - name: Build Project
+      if: steps.uncache-distributables.outputs.cache-hit != 'true'
+      shell: bash
+      run: pnpm @all build
+
+    - name: Cache Distributables
+      if: steps.uncache-distributables.outputs.cache-hit != 'true'
+      with:
+        path: "modules/*/*/dist"
+        key: distributables-${{ runner.os }}-${{ inputs.CACHE_ID }}

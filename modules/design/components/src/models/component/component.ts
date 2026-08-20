@@ -1,57 +1,6 @@
-import { type CSSResult, html, LitElement } from "../entrepot";
-
-/**
- * Options to be used when registering a Component
- *
- * @public
- */
-interface ComponentRegisterOptions {
-  /**
-   * The Component class definition to use when registering.
-   *
-   * @defaultValue this
-   */
-  component?: CustomElementConstructor
-
-  /**
-   * The namespace to use when registering the component.
-   *
-   * @remarks
-   * This value is appended to the `prefixum` value.
-   *
-   * @defaultValue this.prototype.namespace
-   */
-  namespace?: string
-
-  /**
-   * The prefixum to use when registering the component.
-   *
-   * @remarks
-   * This value is prepended to the `namespace` value.
-   *
-   * @defaultValue COMPONENT_CONSTANTS.PREFIXUM
-   */
-  prefixum?: string
-
-  /**
-   * The custom elements registry to register the Component to.
-   *
-   * @defaultValue globalThis.customElements
-   */
-  registry?: CustomElementRegistry
-}
-
-/**
- * Constants associated with the Component class definition.
- *
- * @public
- */
-const COMPONENT_CONSTANTS = {
-  /**
-   * The default prefixum of components constructed from this class definition.
-   */
-  PREFIXUM: "ads",
-} as const;
+import { type CSSResult, html, LitElement } from "../../vendor/index.ts";
+import { COMPONENT_CONSTANTS } from "./constants.ts";
+import { type ComponentRegisterOptions } from "./types.ts";
 
 /**
  * The core Component class definition.
@@ -74,20 +23,20 @@ abstract class Component extends LitElement {
    * The namespace of this component.
    *
    * @remarks
-   * This value is appended to the `this.prefixum` of this class definition.
+   * This value is appended to the `this.prefix` of this class definition.
    */
   public abstract get namespace(): string;
 
   /**
-   * The prefixum of this component.
+   * The prefix of this component.
    *
    * @remarks
    * This value is prepended to the `this.namespace` of this class definition.
    *
-   * @defaultValue COMPONENT_CONSTANTS.PREFIXUM
+   * @defaultValue COMPONENT_CONSTANTS.prefix
    */
-  public get prefixum(): string {
-    return COMPONENT_CONSTANTS.PREFIXUM;
+  public get prefix(): string {
+    return COMPONENT_CONSTANTS.DEFAULTS.PREFIX;
   }
 
   /**
@@ -102,7 +51,7 @@ abstract class Component extends LitElement {
   public static override styles: CSSResult[] = [];
 
   /**
-   * Register a Component definition using the interpreted prefixum and
+   * Register a Component definition using the interpreted prefix and
    * namespace to a registry.
    *
    * @param options - Options to use when registering a component definition.
@@ -111,11 +60,11 @@ abstract class Component extends LitElement {
     const {
       component = this,
       namespace = this.prototype.namespace,
-      prefixum = this.prototype.prefixum,
+      prefix = this.prototype.prefix,
       registry = globalThis.customElements,
     } = options;
 
-    const qualified = `${prefixum}-${namespace}`;
+    const qualified = `${prefix}-${namespace}`;
 
     if (registry.get(qualified)) {
       return;

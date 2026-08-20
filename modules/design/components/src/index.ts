@@ -8,10 +8,10 @@ export {
   Provider,
   COMPONENT_CONSTANTS,
   type ComponentRegisterOptions,
-} from "./models";
+} from "./models/index.ts";
 
 export {
   css,
   html,
   type CSSResult,
-} from "./entrepot";
+} from "./vendor/index.ts";
