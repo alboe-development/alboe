@@ -1,7 +1,9 @@
-### Context
+<!-- Project owners may reject change requests at their discretion -->
 
-<!-- A brief description of the changes made in this pull request. -->
+# Pull Request
 
-### Links
+<!-- Description of the changes made in this request. -->
 
-<!-- Optional links to relevant resources to this pull request. -->
+## Links
+
+<!-- Optional. Links to the relevant resources for this request. -->
