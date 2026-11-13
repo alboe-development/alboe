@@ -11,5 +11,5 @@ catalog:
   "@microsoft/api-extractor": ^7
   "@vitest/coverage-v8": ^4
   eslint: ^10
-  typescript: ^5.9
+  typescript: ^6
   vitest: ^4
