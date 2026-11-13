@@ -1,0 +1,31 @@
+name: "Report a Defect"
+description: "Report a bug or unexpected behavior."
+projects: ["alboe-development/4"]
+type: "Bug"
+
+body:
+  - type: markdown
+    attributes:
+        value: "# Defect"
+
+  - type: markdown
+    attributes:
+      value: "_Share the details needed to understand and reproduce the defect._"
+
+  - type: input
+    id: scope
+    attributes:
+      label: "Scope"
+      description: "Provide the name and version of all mdoules impacted by this bug."
+      placeholder: "@alboe/design-tokens@1.2.3, @alboe/design-components@3.2.1, @alboe/log-utils"
+    validations:
+      required: false
+
+  - type: textarea
+    id: behavior
+    attributes:
+      label: "Behavior"
+      description: "Please provide details on the expected behavior."
+      placeholder: "While consuming {feature}, we tried {operation}. We expected {expectation}, but experience {behavior}."
+    validations:
+      required: true

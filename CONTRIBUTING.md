@@ -2,8 +2,8 @@
 
 This project is currently under development and contributions to this project will be strictly reviewed at the owner's discretion until this project has established a complete contribution model. Once those details are available, the contribution model will contain helpful information to assist with making changes to this project.
 
-* [Setup](#setup)
-* [Making a change](#making-a-change)
+- [Setup](#setup)
+- [Making a Change](#making-a-change)
 
 ## Setup
 
@@ -13,9 +13,9 @@ In order to begin contributions to this project, please follow the steps within 
 
 The items listend in this section must be available on the current system prior to setting up this project for local development:
 
-* [Git](https://git-scm.com/) - Version control tooling.
-* [Node Version Manager](https://www.nvmnode.com/guide/download.html) - Configuration fo Node and NPM.
-* [Windows Subsystem for Linux](https://learn.microsft.com/en-us/windows/wsl/install) (windows only) - Shell alignment tooling.
+- [Git](https://git-scm.com/) - Version control tooling.
+- [Node Version Manager](https://www.nvmnode.com/guide/download.html) - Configuration fo Node and NPM.
+- [Windows Subsystem for Linux](https://learn.microsft.com/en-us/windows/wsl/install) (windows only) - Shell alignment tooling.
 
 ### Forking the Project
 
@@ -49,7 +49,7 @@ In order to utilize the specified runtime environment and dependency manager for
 nvm install
 ```
 
-Once **Node Version Manager** has installed and initialized the specified version of **Node** and **NPM** for this project, install [pnpm](https://pnpm.io/) as a dependency and workspace manager using the following commands:
+Once **Node Version Manager*- has installed and initialized the specified version of **Node*- and **NPM*- for this project, install [pnpm](https://pnpm.io/) as a dependency and workspace manager using the following commands:
 
 ```bash
 # Install the latest version of corepack on this version of NPM.
