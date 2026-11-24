@@ -1,18 +1,14 @@
 name: Initialize Node
-description: Prepare Node and its Dependencies
-
-inputs:
-  CACHE_ID:
-    description: Unique identifier for the distributables cache entry.
-    required: true
+description: Prepare NodeJS and its dependencies.
 
 runs:
   using: composite
+
   steps:
     - name: Install PNPM
       uses: pnpm/action-setup@v6
       with:
-        version: 11
+        version: 12
 
     - name: Install Node
       uses: actions/setup-node@v6

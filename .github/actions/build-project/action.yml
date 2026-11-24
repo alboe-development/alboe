@@ -1,5 +1,5 @@
 name: Build Project
-description: Build This Project
+description: Build this project.
 
 inputs:
   CACHE_ID:
