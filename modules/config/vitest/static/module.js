@@ -6,7 +6,7 @@ import { defineConfig } from "vitest/config";
  * Generate a shared Vitest configuration for module testing a package.
  *
  * @param {object} options - Options used to generate the configuration.
- * @param {string} [options.entry] - Entry directory used for teh package-name aliases.
+ * @param {string} [options.entry] - Entry directory used for the package-name aliases.
  * @param {string} [options.location] - Package root used to resolve output paths.
  * @param {object} [options.manifest] - Package manifest used to create package aliases.
  * @returns {object} Vitest configuration for tests.
@@ -23,7 +23,7 @@ const module = (options = {}) => {
       alias: [
         {
           find: name,
-          replace: Path.join(location, entry),
+          replacement: Path.join(location, entry),
         },
       ],
       attachmentsDir: "./temp/test-attachments",

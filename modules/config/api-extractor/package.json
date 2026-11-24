@@ -1,6 +1,6 @@
 {
   "name": "@alboe/api-extractor-config",
-  "description": "API Extractor configuration for teh Alboe project",
+  "description": "API Extractor configuration for the Alboe project",
   "license": "MIT",
   "version": "0.0.0",
   "private": true,

@@ -6,11 +6,11 @@ import { defineConfig } from "vitest/config";
  * Generate a shared Vitest configuration for coverage testing a package.
  *
  * @param {object} options - Options used to generate the configuration.
- * @param {string} [options.entry] - Entry directory used for teh package-name aliases.
+ * @param {string} [options.entry] - Entry directory used for the package-name aliases.
  * @param {string} [options.location] - Package root used to resolve output paths.
  * @returns {object} Vitest configuration for tests.
  */
-const module = (options = {}) => {
+const coverage = (options = {}) => {
   const {
     entry = Process.env.CI === "true" ? "dist/module" : "src",
     location = Process.cwd(),
@@ -39,4 +39,4 @@ const module = (options = {}) => {
   });
 };
 
-export { module };
+export { coverage };

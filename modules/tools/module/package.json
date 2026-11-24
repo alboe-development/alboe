@@ -1,0 +1,40 @@
+{
+  "name": "@alboe/module-tools",
+  "description": "Tools for manipulating modules within the Alboe project",
+  "license": "MIT",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/module/index.js",
+  "types": "./dist/module/index.d.ts",
+  "bin": {
+    "alboe-module-tools": "./cli.js"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "pnpm build:module && pnpm build:docs",
+    "build:module": "tsc",
+    "build:docs": "pnpm build:docs:metadata && pnpm build:docs:markdown",
+    "build:docs:metadata": "api-extractor run --local --verbose",
+    "build:docs:markdown": "api-documenter markdown --input-folder ./dist/docs/metadata --output-folder ./dist/docs/markdown",
+    "start": "node ./cli.js",
+    "test": "pnpm test:style && pnpm test:module && pnpm test:coverage",
+    "test:coverage": "vitest --config vitest.coverage.js",
+    "test:module": "vitest --config vitest.module.js",
+    "test:style": "eslint"
+  },
+  "devDependencies": {
+    "@alboe/api-extractor-config": "workspace:*",
+    "@alboe/eslint-config": "workspace:*",
+    "@alboe/typescript-config": "workspace:*",
+    "@alboe/vitest-config": "workspace:*",
+    "@microsoft/api-extractor": "catalog:",
+    "@microsoft/api-documenter": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "eslint": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

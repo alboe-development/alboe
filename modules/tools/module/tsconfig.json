@@ -1,0 +1,9 @@
+{
+  "exclude": [
+    "src/**/*.spec.*"
+  ],
+  "extends": "@alboe/typescript-config/static/index.json",
+  "include": [
+    "src/**/*.ts"
+  ]
+}

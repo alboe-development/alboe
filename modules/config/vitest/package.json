@@ -1,6 +1,6 @@
 {
   "name": "@alboe/vitest-config",
-  "description": "Vitest configuration for teh Alboe project",
+  "description": "Vitest configuration for the Alboe project",
   "license": "MIT",
   "version": "0.0.0",
   "private": true,

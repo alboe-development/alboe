@@ -1,6 +1,6 @@
 {
   "name": "@alboe/typescript-config",
-  "description": "TypeScript configuration for teh Alboe project",
+  "description": "TypeScript configuration for the Alboe project",
   "license": "MIT",
   "version": "0.0.0",
   "private": true,

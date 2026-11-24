@@ -49,7 +49,7 @@ In order to utilize the specified runtime environment and dependency manager for
 nvm install
 ```
 
-Once **Node Version Manager*- has installed and initialized the specified version of **Node*- and **NPM*- for this project, install [pnpm](https://pnpm.io/) as a dependency and workspace manager using the following commands:
+Once **Node Version Manager** has installed and initialized the specified version of **Node** and **NPM** for this project, install [pnpm](https://pnpm.io/) as a dependency and workspace manager using the following commands:
 
 ```bash
 # Install the latest version of corepack on this version of NPM.

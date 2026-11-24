@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "incremntal": false,
-    "rewriteRElativeImportExtensions": true,
+    "incremental": false,
+    "rewriteRelativeImportExtensions": true,
     "target": "ESNext",
     "module": "ESNext",
     "lib": ["ESNext"],
