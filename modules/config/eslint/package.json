@@ -1,0 +1,27 @@
+{
+  "name": "@alboe/eslint-config",
+  "description": "ESLint configuration for teh Alboe project",
+  "license": "MIT",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./static/index.js",
+  "files": [
+    "static/*"
+  ],
+  "scripts": {
+    "test": "pnpm test:style",
+    "test:style": "eslint"
+  },
+  "dependencies": {
+    "@eslint/js": "^10",
+    "@eslint/json": "^2",
+    "@eslint/markdown": "^9",
+    "@stylistic/eslint-plugin": "^6",
+    "typescript-eslint": "^8"
+  },
+  "devDependencies": {
+    "@alboe/eslint-config": "workspace:*",
+    "eslint": "catalog:"
+  }
+}

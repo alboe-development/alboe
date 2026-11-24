@@ -1,0 +1,21 @@
+{
+  "name": "@alboe/vitest-config",
+  "description": "Vitest configuration for teh Alboe project",
+  "license": "MIT",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./static/index.js",
+  "files": [
+    "static/*"
+  ],
+  "scripts": {
+    "test": "pnpm test:style",
+    "test:style": "eslint"
+  },
+  "devDependencies": {
+    "@alboe/eslint-config": "workspace:*",
+    "eslint": "catalog:",
+    "vitest": "catalog:"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "incremntal": false,
+    "rewriteRElativeImportExtensions": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "isolatedDeclarations": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "rootDir": "${configDir}/src",
+    "outDir": "${configDir}/dist/module",
+    "moduleResolution": "bundler"
+  }
+}
