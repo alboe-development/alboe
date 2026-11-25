@@ -19,8 +19,28 @@ jobs:
     name: Validate
     runs-on: ubuntu-latest
     steps:
-      - name: Initialize Node
-        uses: ./.github/actions/validate-change
+      - name: Validate Labels
+        run: |
+          HEAD_REPO=${{ github.event.pull_request.head.repo.full_name }}
+          BASE_REPO=${{ github.event.pull_request.base.repo.full_name }}
+          FROM_BASE=0; [ "$HEAD_REPO" == "$BASE_REPO" ] && FROM_BASE=1
+
+          HAS_VALIDATED_LABEL=${{ contains(github.event.pull_request.labels.*.name, 'validated') || contains(github.event.workflow_run.labels.*.name, 'validated') || contains(github.event.label.name, 'validated') }}
+          VALIDATED=0; [ "$HAS_VALIDATED_LABEL" == "true" ] && VALIDATED=1
+
+          echo github.event
+
+          echo from base $FROM_BASE
+          echo validated $VALIDATED
+
+          if [[ $FROM_BASE == 1 || $VALIDATED == 1 ]]
+          then
+            echo 'Pull request is validated, continuing.'
+            exit 0
+          else
+            echo 'Pull request is not validated, exiting.'
+            exit 1
+          fi
 
   initialize:
     name: Initialize
@@ -36,8 +56,8 @@ jobs:
       - name: Initialize Node
         uses: ./.github/actions/initialize-node
 
-  test-style:
-    name: Test Style
+  build:
+    name: Build Project
     needs: [initialize]
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -51,6 +71,82 @@ jobs:
 
       - name: Initialize Node
         uses: ./.github/actions/initialize-node
+
+      - name: Build Project
+        uses: ./.github/actions/build-project
+        with:
+          CACHE_ID: ${{ env.RID }}
+
+  test-coverage:
+    name: Test Coverage
+    needs: [build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          allow-unsafe-pr-checkout: true
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Initialize Node
+        uses: ./.github/actions/initialize-node
+
+      - name: Build Project
+        uses: ./.github/actions/build-project
+        with:
+          CACHE_ID: ${{ env.RID }}
+
+      - name: Test Coverage
+        shell: bash
+        run: pnpm @all test:coverage
+
+  test-module:
+    name: Test Module
+    needs: [build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          allow-unsafe-pr-checkout: true
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Initialize Node
+        uses: ./.github/actions/initialize-node
+
+      - name: Build Project
+        uses: ./.github/actions/build-project
+        with:
+          CACHE_ID: ${{ env.RID }}
+
+      - name: Test Module
+        shell: bash
+        run: pnpm @all test:module
+
+  test-style:
+    name: Test Style
+    needs: [build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          allow-unsafe-pr-checkout: true
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Initialize Node
+        uses: ./.github/actions/initialize-node
+
+      - name: Build Project
+        uses: ./.github/actions/build-project
+        with:
+          CACHE_ID: ${{ env.RID }}
 
       - name: Test Style
         shell: bash
